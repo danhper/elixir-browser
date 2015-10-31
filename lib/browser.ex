@@ -13,7 +13,7 @@ defmodule Browser do
 
   defimpl Ua, for: Plug.Conn do
     def to_ua(conn) do
-      Plug.Conn.get_req_header(conn, "user-agent")
+      Plug.Conn.get_req_header(conn, "user-agent") |> List.first
     end
   end
 
