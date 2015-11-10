@@ -282,7 +282,7 @@ defmodule Browser do
   end
 
   def tablet?(input) do
-    ipad?(input) or (android?(input) and not detect_mobile?(input)) or surface?(input) or playbook?(input)
+    ipad?(input) or (android?(input) and not detect_mobile?(Ua.to_ua(input))) or surface?(input) or playbook?(input)
   end
 
   def kindle?(input) do
