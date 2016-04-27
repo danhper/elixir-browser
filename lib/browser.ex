@@ -84,7 +84,8 @@ defmodule Browser do
     end
   end
 
-  def version(ua) do
+  def version(input) do
+    ua = Ua.to_ua(input)
     if ie?(ua) do
       ie_version(ua)
     else
