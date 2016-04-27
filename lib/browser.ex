@@ -74,14 +74,14 @@ defmodule Browser do
 
   def id(input) do
     ua = Ua.to_ua(input)
-    @names |> Dict.keys |> Enum.find fn id ->
+    @names |> Dict.keys |> Enum.find(fn id ->
       f = String.to_atom("#{id}?")
       if function_exported?(Browser, f, 1) do
         apply(Browser, f, [ua])
       else
         id
       end
-    end
+    end)
   end
 
   def version(input) do
