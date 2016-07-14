@@ -17,6 +17,7 @@ defmodule Browser do
     end
   end
 
+  # order is important, so we need a keyword list, not a map
   @names [
     edge: "Microsoft Edge",   # Must come before everything
     ie: "Internet Explorer",  # Must come before android
@@ -41,13 +42,13 @@ defmodule Browser do
     other: "Other",
   ]
 
-  @versions [
+  @versions %{
     edge: ~r{Edge/([\d.]+)},
     chrome: ~r{(?:Chrome|CriOS)/([\d.]+)},
-    default: ~r{(?:Version|MSIE|Firefox|QuickTime|BlackBerry[^/]+|CoreMedia v|PhantomJS|AdobeAIR)[/ ]?([a-z0-9.]+)}i,
+    default: ~r{(?:Version|MSIE|Firefox|QuickTime|BlackBerry[^/]+|CoreMedia v|PhantomJS|AdobeAIR|GSA)[/ ]?([a-z0-9.]+)}i,
     opera: ~r{(?:Opera/.*? Version/([\d.]+)|Chrome/.*?OPR/([\d.]+))},
     ie: ~r{(?:MSIE |Trident/.*?; rv:)([\d.]+)}
-  ]
+  }
 
   @modern_rules [
     &Browser.webkit?/1,
@@ -74,7 +75,7 @@ defmodule Browser do
 
   def id(input) do
     ua = Ua.to_ua(input)
-    @names |> Dict.keys |> Enum.find(fn id ->
+    @names |> Keyword.keys |> Enum.find(fn id ->
       f = String.to_atom("#{id}?")
       if function_exported?(Browser, f, 1) do
         apply(Browser, f, [ua])
@@ -98,7 +99,7 @@ defmodule Browser do
     if ie?(ua) do
       ie_full_version(ua)
     else
-      Dict.get(@versions, id(ua), @versions[:default])
+      Map.get(@versions, id(ua), @versions[:default])
         |> Regex.run(ua)
         |> Enum.drop(1)
         |> Enum.filter(fn n -> is_bitstring(n) and String.length(n) > 0 end)
@@ -322,7 +323,7 @@ defmodule Browser do
   end
 
   defp ie_version(ua) do
-    Dict.get(@trident_mapping, trident_version(ua), msie_version(ua))
+    Map.get(@trident_mapping, trident_version(ua), msie_version(ua))
   end
 
   defp trident_version(ua) do

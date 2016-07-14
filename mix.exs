@@ -3,7 +3,7 @@ defmodule Browser.Mixfile do
 
   def project do
     [app: :browser,
-     version: "0.1.3",
+     version: "0.1.4",
      name: "browser",
      source_url: "https://github.com/tuvistavie/elixir-browser",
      homepage_url: "https://github.com/tuvistavie/elixir-browser",
@@ -35,7 +35,7 @@ defmodule Browser.Mixfile do
 
   defp deps do
     [{:earmark, "~> 0.2", only: :dev},
-     {:ex_doc, "~> 0.7", only: :dev},
+     {:ex_doc, "~> 0.12", only: :dev},
      {:mix_test_watch, "~> 0.2", only: :dev}]
   end
 end

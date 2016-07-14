@@ -1010,6 +1010,22 @@ defmodule BrowserTest do
     assert Browser.version(ua) == "4"
   end
 
+  test "detects ipad gsa" do
+    ua = Fixtures.ua["IPAD_GSA"]
+
+    assert Browser.name(ua) == "iPad"
+    assert Browser.ipad?(ua)
+    assert Browser.safari?(ua)
+    assert Browser.webkit?(ua)
+    assert Browser.modern?(ua)
+    assert Browser.ios?(ua)
+    assert Browser.tablet?(ua)
+    refute Browser.mobile?(ua)
+    refute Browser.mac?(ua)
+    assert Browser.full_version(ua) == "13.1.72140"
+    assert Browser.version(ua) == "13"
+  end
+
   test "detects ios4" do
     ua = Fixtures.ua["IOS4"]
     assert Browser.ios?(ua)
