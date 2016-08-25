@@ -1150,4 +1150,13 @@ defmodule BrowserTest do
     refute Browser.tablet?(ua)
     assert Browser.mobile?(ua)
   end
+
+  test "fallbacks to other on unknown UA" do
+    ua = Fixtures.ua["INVALID"]
+
+    assert Browser.name(ua) == "Other"
+    assert Browser.id(ua) == :other
+    assert Browser.full_version(ua) == "0.0"
+    assert Browser.version(ua) == "0"
+  end
 end

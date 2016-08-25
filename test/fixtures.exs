@@ -120,7 +120,8 @@ defmodule Fixtures do
       "YAHOO_SLURP" => "Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp)",
       "YANDEX_BROWSER" => "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.118 YaBrowser/15.4.2272.3909 (beta) Yowser/2.0 Safari/537.36",
       "YANDEX_DIRECT" => "Mozilla/5.0 (compatible; YandexDirect/3.0; +http://yandex.com/bots)",
-      "YANDEX_METRIKA" => "Mozilla/5.0 (compatible; YandexMetrika/3.0; +http://yandex.com/bots)"
+      "YANDEX_METRIKA" => "Mozilla/5.0 (compatible; YandexMetrika/3.0; +http://yandex.com/bots)",
+      "INVALID" => "This is an invalid UA which should never be received"
     }
   end
 end

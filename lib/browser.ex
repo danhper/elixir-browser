@@ -101,6 +101,7 @@ defmodule Browser do
     else
       Map.get(@versions, id(ua), @versions[:default])
         |> Regex.run(ua)
+        |> Kernel.||([])
         |> Enum.drop(1)
         |> Enum.filter(fn n -> is_bitstring(n) and String.length(n) > 0 end)
         |> List.first || "0.0"
