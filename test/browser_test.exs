@@ -1,6 +1,21 @@
 defmodule BrowserTest do
   use ExUnit.Case
+  use Plug.Test
+  import Plug.Conn
+  alias Browser.Ua
   doctest Browser
+
+  test "returns empty string when Conn has no user-agent header" do
+    assert conn(:get, "/") |> Ua.to_ua == ""
+  end
+
+  test "retrieves first UA when Conn has user-agent header" do
+    conn = conn(:get, "/")
+      |> put_req_header("user-agent", "Mozilla 5.0")
+      |> put_req_header("user-agent", "Opera")
+
+    assert conn |> Ua.to_ua == "Opera"
+  end
 
   test "detects android" do
     ua = Fixtures.ua["ANDROID"]
