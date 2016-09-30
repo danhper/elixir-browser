@@ -1,9 +1,9 @@
 defmodule BrowserTest do
   use ExUnit.Case
   use Plug.Test
+
   import Plug.Conn
   alias Browser.Ua
-  doctest Browser
 
   test "returns empty string when Conn has no user-agent header" do
     assert conn(:get, "/") |> Ua.to_ua == ""
