@@ -34,8 +34,11 @@ defmodule Browser.Mixfile do
   end
 
   defp deps do
-    [{:earmark, "~> 0.2", only: :dev},
-     {:ex_doc, "~> 0.12", only: :dev},
-     {:mix_test_watch, "~> 0.2", only: :dev}]
+    [
+      {:plug, "~> 1.2"},
+      {:earmark, "~> 0.2", only: :dev},
+      {:ex_doc, "~> 0.12", only: :dev},
+      {:mix_test_watch, "~> 0.2", only: :dev}
+    ]
   end
 end
