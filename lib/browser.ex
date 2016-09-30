@@ -290,7 +290,10 @@ defmodule Browser do
   end
 
   def tablet?(input) do
-    ipad?(input) or (android?(input) and not detect_mobile?(Ua.to_ua(input))) or surface?(input) or playbook?(input)
+    ipad?(input) or \
+    (android?(input) and not detect_mobile?(Ua.to_ua(input))) or \
+    surface?(input) or \
+    playbook?(input)
   end
 
   def kindle?(input) do
@@ -393,7 +396,7 @@ defmodule Browser do
 
   def android?(input, version \\ nil) do
     ua = Ua.to_ua(input)
-    String.match?(ua, ~r/Android/) and not opera?(ua) and detect_version?(android_version(ua), version)
+    String.match?(ua, ~r/Android/) and detect_version?(android_version(ua), version)
   end
 
   def android_version(input) do
@@ -469,16 +472,30 @@ defmodule Browser do
     input |> Ua.to_ua |> String.match?(~r/Linux/)
   end
 
+  def firefox_os?(input) do
+    ua = Ua.to_ua(input)
+    not String.match?(ua, ~r/(Android|Linux|BlackBerry|Windows|Mac)/) and \
+      String.match?(ua, ~r/Firefox/)
+  end
+
   def chrome_os?(input) do
     input |> Ua.to_ua |> String.match?(~r/CrOS/)
   end
 
   def platform(input) do
     cond do
-      linux?(input) -> :linux
-      mac?(input) -> :mac
-      windows?(input) -> :windows
-      true -> :other
+      adobe_air?(input)      -> :adobe_air
+      chrome_os?(input)      -> :chrome_os
+      windows_mobile?(input) -> :windows_mobile
+      windows_phone?(input)  -> :windows_phone
+      android?(input)        -> :android
+      blackberry?(input)     -> :blackberry
+      ios?(input)            -> :ios
+      mac?(input)            -> :mac
+      firefox_os?(input)     -> :firefox_os
+      windows?(input)        -> :windows
+      linux?(input)          -> :linux
+      true                   -> :other
     end
   end
 
