@@ -208,7 +208,8 @@ defmodule Browser do
   end
 
   # Bot
-  @bots Browser.Helpers.read_file("bots.txt")
+  @bots_file Application.get_env(:browser, :bots_file, "bots.txt")
+  @bots Browser.Helpers.read_file(@bots_file)
   @search_engines Browser.Helpers.read_file("search_engines.txt")
 
   def bot?(input, options \\ []) do
