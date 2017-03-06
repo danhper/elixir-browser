@@ -3,24 +3,24 @@ defmodule Browser.Mixfile do
 
   def project do
     [app: :browser,
-     version: "0.2.0",
+     version: "0.2.1",
      name: "browser",
      source_url: "https://github.com/tuvistavie/elixir-browser",
      homepage_url: "https://github.com/tuvistavie/elixir-browser",
-     package: package,
-     description: description,
+     package: package(),
+     description: description(),
      licenses: "MIT",
      elixir: "~> 1.2",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     deps: deps]
+     deps: deps()]
   end
 
-  defp description do
+  defp description() do
     "Browser detection library"
   end
 
-  defp package do
+  defp package() do
     [
       files: ["lib", "mix.exs", "README.md", "LICENSE", "bots.txt", "search_engines.txt"],
       maintainers: ["Daniel Perez"],
@@ -33,7 +33,7 @@ defmodule Browser.Mixfile do
     [applications: [:logger]]
   end
 
-  defp deps do
+  defp deps() do
     [{:plug, "~> 1.2", optional: true},
      {:earmark, "~> 1.0", only: :dev},
      {:ex_doc, "~> 0.13", only: :dev},
