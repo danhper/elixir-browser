@@ -66,3 +66,14 @@ be extracted and used.
 ```elixir
 Browser.bot?(conn)
 ```
+
+### Configuration
+
+You can specify custom bots.txt file in your project's config.
+
+```elixir
+config :browser,
+  bots_file: Path.join(File.cwd!, "bots.txt")  # bots.txt in project's root
+```
+
+Please note that option set as mobule attribute during compile time, so make sure you recompiled elixir-browser after changing this option or bots file itself.
