@@ -1,6 +1,6 @@
 defmodule Browser.Helpers do
   def read_file(name) do
-    File.read!(Path.join(Path.dirname(Path.dirname(__DIR__)), name))
+    File.read!(Path.expand(name))
       |> String.strip
       |> String.split("\n")
       |> Enum.map(&String.split(&1, "\t"))
