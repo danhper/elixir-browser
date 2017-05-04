@@ -476,6 +476,8 @@ defmodule Browser do
 
   def platform(input) do
     cond do
+      ios?(input) -> :ios
+      android?(input) -> :android
       linux?(input) -> :linux
       mac?(input) -> :mac
       windows?(input) -> :windows
