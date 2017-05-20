@@ -103,6 +103,22 @@ defmodule BrowserTest do
     assert Browser.name(ua) == "Other"
   end
 
+  test "detects ios platform" do
+    iphone = Fixtures.ua["IPHONE"]
+    ipad = Fixtures.ua["IPAD"]
+
+    assert Browser.platform(iphone)  == :ios
+    assert Browser.platform(ipad)  == :ios
+  end
+
+  test "detects android platform" do
+    android_1 = Fixtures.ua["ANDROID"]
+    android_2 = Fixtures.ua["ANDROID_WITH_SAFARI"]
+
+    assert Browser.platform(android_1)  == :android
+    assert Browser.platform(android_2)  == :android
+  end
+
   test "detects mac platform" do
     ua = "Mac OS X"
     assert Browser.platform(ua)  == :mac
