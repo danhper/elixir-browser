@@ -234,7 +234,7 @@ defmodule Browser do
   end
 
   defp bot_with_empty_ua?(ua, options) do
-    options[:detect_empty_ua] && String.trim(ua) == ""
+    options[:detect_empty_ua] && String.strip(ua) == ""
   end
 
   # Consoles
