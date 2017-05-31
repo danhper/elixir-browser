@@ -1,174 +1,246 @@
-360Spider	360Spider
-AddThis	AddThis
-ADmantX	ADmantX Platform Semantic Analyzer
-AdsBot-Google	Google Adwords
-AhrefsBot	Ahrefs backlinks research tool
+200pleasebot	200PleaseBot
+360spider	360Spider
+abot	CrawlDaddy, abot
+addthis	AddThis
+adldxbot	Microsoft Bing Ads
+admantx	ADmantX Platform Semantic Analyzer
+adsbot-google	Google Adwords
+advbot	AdvBot
+ahrefsbot	Ahrefs backlinks research tool
 alexa	Alexa Crawler
-Apache-HttpClient	Java http library
-ApacheBench	ApacheBench (ab)
-AppEngine-Google	Google App Engine
-Applebot	Apple Bot
-Ask Jeeves	Ask Jeeves
-AsyncHttpClient	Java http and WebSocket client library
+apache-httpclient	Java http library
+apachebench	ApacheBench (ab)
+apis-google	APIs-Google
+appengine-google	Google App Engine
+applebot	Apple Bot
+archive.org_bot	Internet Archive (archive.org)
+ask jeeves	Ask Jeeves
+asynchttpclient	Java http and WebSocket client library
 awe.sm	Awe.sm URL expander
-Baidu	baidu
-Baiduspider	Chinese search engine
-bingbot	Microsoft bing bot
+baidu	Baidu
+bdcbot	Big Data Corp
+bingbot	Microsoft Bing
+bingpreview	Microsoft Bing preview
 bitlybot	bit.ly bot
-BLEXBot	webmeup-crawler.com
+blekkobot	Blekkobot
+blexbot	BLEXBot (webmeup)
 bot@linkfluence.net	Linkfluence bot
-BuiBui-CheckBot	email: buibui[at]dadapro[dot]com
-Butterfly	Topsy Labs
+bufferbot	BufferBot
+buibui-checkbot	buibui
+butterfly	Topsy Labs
 buzztalk	buzztalk
+catchbot	CatchBot (catchbot.com)
 check_http	Nagios monitor
-CMRadar/0.1	CMRadar/0.1
-ColdFusion	ColdFusion http library
-Crowsnest	Crowsnest
-Crowsnest	crowsnest.tv news portal bot
+cliqzbot	Cliqzbot
+cmradar/0.1	CMRadar/0.1
+coldfusion	ColdFusion http library
+commoncrawl	CCBot
+comodo-webinspector-crawler	Comodo
+crowsnest	Crowsnest
+curabot	cura.yt
 curl	curl unix CLI http client
-Daumoa	Korean portal and search engine indexing bot
-DAP/NetHTTP	DAP/NetHTTP
+dap/nethttp	DAP/NetHTTP
+datagnionbot	datagnion.com/bot.html
+daumoa	Korean portal and search engine indexing bot
 developers.google.com/+/web/snippet/	Google Plus
-DigitalPersona Fingerprint Software	HP Fingerprint scanner
-DotBot	Dot Bot
-DuckDuckBot	Duck Duck Go
-Embedly	Embedly
-EOAAgent	EOAAgent
-EventMachine HttpClient	Ruby http library
-EvriNid	Evri bot
-Exabot	Exalead's bot
-ExaleadCloudView	ExaleadCloudView
+diffbot	Diffbot
+digitalpersona fingerprint software	HP Fingerprint scanner
+domain re-animator bot	Domain Re-Animator Bot
+domainsbot	DomainsBot
+domaintunocrawler	DomainTuno
+dotbot	Dot Bot
+duckduck	Duck Duck Go
+elb-healthchecker	AWS ELB HealthChecker
+embedly	Embedly
+eoaagent	EOAAgent
+eventmachine httpclient	Ruby http library
+everyonesocialbot	EveryoneSocial
+evrinid	Evri bot
+exabot	Exalead's bot
+exaleadcloudview	ExaleadCloudView
 facebookexternalhit	Facebook Bot
-Facebot	Facebook Bot
-FeedBurner	RSS bot
-Feedfetcher-Google	Google Feedfetcher
-FlipboardProxy	FlipboardProxy
-Genieo	Genieo Web filter bot
+facebot	Facebook Bot
+feedburner	RSS bot
+feedfetcher-google	Google Feedfetcher
+findxbot	Findxbot
+flipboardproxy	FlipboardProxy
+friendfeedbot	FriendFeed
+genieo	Genieo Web filter bot
 getprismatic.com	getprismatic.com
-Gigabot	Gigabot spider
-Go http package	Go http library
-Google Web Preview	Google Instant Previews crawler
-Google Page Speed Insights	Google Page Speed Insights
-Googlebot	Google spider
-Hatena::Bookmark	Hatena::Bookmark
+gigabot	Gigabot spider
+gimme60bot	Gimme60 (gimme60.com)
+gimmeusabot	Gimme60 (gimme60.com)
+go http package	Go http library
+google page speed insights	Google Page Speed Insights
+google Web Preview	Google Instant Previews crawler
+google-structured-data-testing-tool	Google-StructuredDataTestingTool
+google-structureddatatestingtool	Google-StructuredDataTestingTool
+googlebot	Google Bot
+googlestackdrivermonitoring-uptimechecks	GoogleStackdriverMonitoring-UptimeChecks
+grapeshotcrawler	GrapeshotCrawler
+gravitybot	Gravity Bot
+hatena::bookmark	Hatena::Bookmark
 heritrix	heritrix
-HTMLParser	HTMLParser
-HTTPClient	HTTPClient
+htmlparser	HTMLParser
+http_request2	HTTP_Request2
+httpclient	HTTPClient
 https://developers.google.com/+/web/snippet	Google+ Snippet Fetcher
-HTTP_Request2	HTTP_Request2
-HubSpot Connect	HubSpot Connect
-ia_archiver(OS-Wayback)	ia_archiver(OS-Wayback)
-iCoreService	iCoreService
-InAGist	URL resolver
-Insieve Bot	Insieve Bot
-InsieveBot	InsieveBot
-Instapaper	Instapaper
-Insitesbot	Insitesbot
-IstellaBot	IstellaBot
+hubspot	HubSpot
+ia_archiver	Internet Archive (WayBackMachine)
+icoreservice	iCoreService
+idmarch	idmarch.org/bot.html
+inagist	URL resolver
+insieve	Insieve Bot
+insitesbot	Insitesbot
+instapaper	Instapaper
+istellabot	IstellaBot
 jack	jack
-Jakarta Commons-HttpClient	Jakarta Commons-HttpClient
-Jakarta Commons	Jakarta Commons HttpClient
-Java	Generic Java http library
-Jetslide	Jetslide
-JS-Kit	URL resolver
-Kimengi/nineconnections.com	Kimengi/nineconnections.com
-Kimengi	nineconnections.com bot
+jakarta commons	Jakarta Commons HttpClient
+java	Generic Java http library
+jetslide	Jetslide
+js-kit	URL resolver
+kemvibot	Kemvi
+kimengi	Kimengi Bot
 knows.is	knows.is
+kojitsubot	Kojitsubot
+komodiabot	KomodiaBot
 kraken	kraken
-Laconica	Laconica
-libwww-perl	Perl client-server library loved by script kids
+laconica	Laconica
+libwww-perl	Perl client-server library
+lijit crawler	Lijit
 linkdexbot	Linkdex Bot
-LinkedInBot	LinkedIn
-LinksCrawler	LinksCrawler
-Linode	Linode Longview
-Lipperhey	Lipperhey
-Livelapbot	Livelapbot
-LoadTimeBot	Load Time Bot
-LongURL	URL expander service
-Lumibot	Lumibot
-lwp-trivial	Another Perl library loved by script kids
+linkedinbot	LinkedIn
+linkscrawler	LinksCrawler
+linode	Linode Longview
+lipperhey	Lipperhey
+livelapbot	Livelapbot
+loadtimebot	Load Time Bot
+longurl	URL expander service
+ltx71	ltx71.com
+lumibot	Lumibot
+lwp-trivial	Another Perl library
 magpie-crawler	magpie-crawler
-Mail.RU_Bot	Mail.ru Bot
-Mediapartners-Google	Google Adsense bot
-MegaIndex.ru	Mozilla/5.0 (compatible; MegaIndex.ru/2.0; +https://www.megaindex.ru/?tab=linkAnalyze)
-MetaURI	MetaURI
-MetaURI	URI meta information extractor bot
-MFE_expand	Mcafee spider
-MJ12bot	Majestic-12 spider
-MojeekBot	Mojeek UK search crawler
+mail.ru_bot	Mail.ru Bot
+meanpathbot	meanpath
+mediapartners-google	Google Adsense bot
+megaindex.ru	MegaIndex
+memorybot	mignify.com/bot.html
+metauri	MetaURI
+mfe_expand	Mcafee spider
+mir web crawler	MIR web crawler
+mj12bot	Majestic-12 spider
+mojeekbot	Mojeek UK search crawler
+mrchrome	MrChrome
+ms search 6.0 robot	MS Search 6.0 Robot
+msnbot-media	Microsoft media bot
 msnbot	Microsoft bot
-netState	netEstate NE Crawler
-Netvibes	Personalized dashboard bot
-NewRelicPinger	NewRelic monitor
-newsme	Link analyzer
+nerdybot	NerdyBot
+netcraft	Netcraft
+netstate	netEstate NE Crawler
+netvibes	Personalized dashboard bot
+netzcheckbot	netzcheck
+newrelicmonitor	NewRelic monitor
+newrelicpinger	NewRelicPinger
 newsme	newsme
-NING	NING - Yet Another Twitter Swarmer
-Nutch	Apache search spider
-Panopta	Monitoring service
-PaperLiBot	PaperLi content curation service
-PaperLiBot	PaperLi is another content curation service
+niki-bot	niki-bot
+ning	NING - Yet Another Twitter Swarmer
+nutch	Apache search spider
+openhosebot	OpenHoseBot
+orangebot	OrangeBot
+pagesinventory	pagesinventory.com
+panopta	Monitoring service
+paperlibot	PaperLi
 peerindex	peerindex
-PercolateCrawler	PercolateCrawler
-PhantomJS	PhantomJS
-Pingdom	Pingdom monitoring
-Pinterest	Pinterest
+percolatecrawler	PercolateCrawler
+perfectmarketkwtbot	PerfectMarket
+phantomjs	PhantomJS
+pingdom	Pingdom monitoring
+pinterest	Pinterest
+plukkie	botje.com/plukkie.htm
+privacyawarebot	PrivacyAwareBot
+proximic	Proximic Spider
+psbot-page	Picsearch
 publiclibraryarchive.org	publiclibraryarchive.org
-PycURL	Python http library
-Python-httplib2	Python-httplib2
+pycurl	Python http library
+python-httplib2	Python-httplib2
 python-requests	Python http library
-python-requests	python-requests
-Python-urllib	Python http library
-QuerySeeker	QuerySeekerSpider ( http://queryseeker.com/bot.html )
-QuickLook	QuickLook
-Readability	Readability
-RebelMouse	RebelMouse
+python-urllib	Python http library
+queryseeker	QuerySeekerSpider
+quicklook	QuickLook
+re-animator	Domain Re-Animator Bot
+readability	Readability
+rebelmouse	RebelMouse
 redditbot	Reddit Bot
-RelateIQ	RelateIQ
-Riddler	Riddler Bot
+relateiq	RelateIQ
+riddler	Riddler Bot
 rogerbot	SeoMoz spider
-Ruby/1.9.3	Ruby/1.9.3
-Ruby	Ruby
-Scrapy	Scrapy
-SemrushBot	SEO analysis bot
-SeznamBot	SeznamBot
-ShopWiki	ShopWiki
-ShortLinkTranslate	Link shortener
-ShowyouBot	Showyou iOS app spider
-Siege	Joe Dog Siege
-SiteUptime	Site monitoring services
-Slack	Slackbot-LinkExpanding
-Slurp	Yahoo spider
-Sogou	Chinese search engine
+rssmicro	RSS/Atom Feed Robot (rssmicro.com)
+ruby	Ruby
+scrapy	Scrapy
+screaming frog seo spider	Screaming Frog SEO Spider
+searchmetricsbot	SearchmetricsBot
+semrushbot	SEO analysis bot
+seokicks	SEOKicks
+seznambot	SeznamBot
+shopwiki	ShopWiki
+shortlinktranslate	Link shortener
+showyoubot	Showyou iOS app spider
+siege	Joe Dog Siege
+sistrix	SISTRIX
+siteuptime	Site monitoring services
+slack	Slackbot-LinkExpanding
+slackbot	Slack Bot
+slurp	Yahoo spider
+smtbot	SimilarTech
+socialrank	SocialRankIOBot
+sogou	Chinese search engine
+spbot	OpenLinkProfiler
 spider	generic web spider
-Spinn3r	Spinn3r aggregator
-StatusCake	StatusCake
-Test Certificate Info	C http library?
-trendictionbot	trendiction search
-TurnitinBot	TurnitinBot
-TweetmemeBot	TweetMeMe Crawler
-Twikle	Social web search bot
-TwitJobSearch	TwitJobSearch
-Twitmunin	Twitmunin
-Twitterbot	Twitter URL expander
-Twurly	Twurly
-Typhoeus	Typhoeus
-UnwindFetch	Gnip URL expander
-UnwindFetchor	Gnip crawler
-Vagabondo	Vagabondo
-VB Project	Visual Basic
-vkShare	VKontake Sharer
-VoilaBot	VoilaBot
-Webscout	Webscout
-Wget	wget unix CLI http client
-WordPress	WordPress spider
-Wormly	WormlyBot
-Xenu Link Sleuth	Xenu Link Sleuth
-XoviBot	XoviBot
-YandexBot	Yandex spider
-YandexDirect	Yandex Direct spider
-YandexMetrika	Yandex Metrika spider
-YOURLS	YOURLS
+spinn3r	Spinn3r aggregator
+sputnikbot	SputnikBot
+squider	Squider
+statuscake	StatusCake
+stripe	Stripe
+test certificate info	C http library?
+tineye	TinEye Bot
+traackr	Traackr Bot
+trendictionbot	Trendiction Search
+turnitinbot	TurnitinBot
+tweetedtimes	The Tweeted Times
+tweetmemebot	TweetMeMe Crawler
+twikle	Social web search bot
+twitjobsearch	TwitJobSearch
+twitmunin	Twitmunin
+twitterbot	Twitter URL expander
+twurly	Twurly
+typhoeus	Typhoeus
+umbot	uberMetrics
+unwindfetch	Gnip
+uptimerobot	Uptime Robot
+vagabondo	Vagabondo
+vb project	Visual Basic
+vigil	Vigil
+vkshare	VKontake Sharer
+voilabot	VoilaBot
+vrcrawler	Venture Radar
+wasalive-bot	Wasalive Bots
+watchsumo	WatchSumo
+wbsearchbot	Ware Bay Best Buys
+webscout	Webscout
+wesee	WeSEE
+wget	wget unix CLI http client
+wordpress	WordPress spider
+wormly	WormlyBot
+wotbox	Wotbox
+xenu link sleuth	Xenu Link Sleuth
+xing-contenttabreceiver	Xing bot
+xovibot	XoviBot
+yacybot	YaCy
+yahoo-ad-monitoring	Yahoo Ad monitoring
+yandex	Yandex
+yeti	Naver Corp
+yourls	YOURLS
 zelist.ro	feed parser
-ZIBB	ZIBB spider
-ZyBorg	Zyborg? Hmmm....
-StructuredDataTestingTool	'Google-StructuredDataTestingTool'
+zibb	ZIBB spider
+zitebot	Zite
+zyborg	Zyborg
