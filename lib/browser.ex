@@ -213,20 +213,19 @@ defmodule Browser do
   @search_engines Browser.Helpers.read_file("search_engines.txt")
 
   def bot?(input, options \\ []) do
-    ua = Ua.to_ua(input)
+    ua = Ua.to_ua(input) |> String.downcase
     bot_with_empty_ua?(ua, options) ||
       Enum.any? @bots, fn {name, _} -> String.contains?(ua, name) end
   end
 
   def bot_name(input, options \\ []) do
-    ua = Ua.to_ua(input)
-    if bot?(ua, options) do
-      if bot_with_empty_ua?(ua, options) do
-        "Generic Bot"
-      else
-        res = Enum.find @bots, fn {name, _} -> String.contains?(ua,name) end
-        elem(res || {nil, nil}, 0)
-      end
+    ua = Ua.to_ua(input) |> String.downcase
+
+    if bot_with_empty_ua?(ua, options) do
+      "Generic Bot"
+    else
+      res = Enum.find @bots, fn {name, _} -> String.contains?(ua, name) end
+      elem(res || {nil, nil}, 0)
     end
   end
 
@@ -235,7 +234,7 @@ defmodule Browser do
   end
 
   defp bot_with_empty_ua?(ua, options) do
-    options[:detect_empty_ua] && String.length(String.strip(ua)) == 0
+    options[:detect_empty_ua] && String.strip(ua) == ""
   end
 
   # Consoles

@@ -423,7 +423,7 @@ defmodule BrowserTest do
 
   test "returns bot name" do
     ua = Fixtures.ua["GOOGLE_BOT"]
-    assert Browser.bot_name(ua) == "Googlebot"
+    assert Browser.bot_name(ua) == "googlebot"
 
     ua = Fixtures.ua["FACEBOOK_BOT"]
     assert Browser.bot_name(ua) == "facebookexternalhit"
