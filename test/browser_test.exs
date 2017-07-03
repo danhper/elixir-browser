@@ -843,23 +843,39 @@ defmodule BrowserTest do
     refute Browser.safari?(ua)
   end
 
-  test "detects IE without Trident" do
-    ua = Fixtures.ua["IE_WITHOUT_TRIDENT"]
+  test "detects ie8 without Trident" do
+    ua = Fixtures.ua["IE8_WITHOUT_TRIDENT"]
 
     assert Browser.id(ua) == :ie
     assert Browser.name(ua) == "Internet Explorer"
-    assert Browser.msie_full_version(ua) == "0.0"
-    assert Browser.msie_version(ua) == "0"
-    assert Browser.full_version(ua) == "0.0"
-    assert Browser.version(ua) == "0"
+    assert Browser.msie_full_version(ua) == "8.0"
+    assert Browser.msie_version(ua) == "8"
+    assert Browser.full_version(ua) == "8.0"
+    assert Browser.version(ua) == "8"
     refute Browser.windows10?(ua)
     refute Browser.windows_phone?(ua)
     refute Browser.edge?(ua)
+    refute Browser.modern_edge?(ua)
     refute Browser.modern?(ua)
+    refute Browser.modern_ie_version?(ua)
     refute Browser.mobile?(ua)
     refute Browser.webkit?(ua)
     refute Browser.chrome?(ua)
     refute Browser.safari?(ua)
+  end
+
+  test "detects ie9 without Trident" do
+    ua = Fixtures.ua["IE9_WITHOUT_TRIDENT"]
+
+    assert Browser.name(ua) == "Internet Explorer"
+    assert Browser.ie?(ua)
+    assert Browser.ie?(ua, 9)
+    assert Browser.modern?(ua)
+    refute Browser.compatibility_view?(ua)
+    assert Browser.full_version(ua) == "9.0"
+    assert Browser.version(ua) == "9"
+    refute Browser.modern_edge?(ua)
+    assert Browser.modern_ie_version?(ua)
   end
 
   test "detects windows phone" do
