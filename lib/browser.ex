@@ -123,11 +123,11 @@ defmodule Browser do
   end
 
   def modern_ie_version?(ua) do
-    Browser.ie?(ua) and to_int(Browser.version(ua)) >= 9 and not Browser.compatibility_view?(ua)
+    Browser.ie?(ua) and to_int(Browser.version(ua)) >= 9 and !Browser.compatibility_view?(ua)
   end
 
   def modern_edge?(ua) do
-    Browser.edge?(ua) and not Browser.compatibility_view?(ua)
+    Browser.edge?(ua) and !Browser.compatibility_view?(ua)
   end
 
   def modern_opera?(ua) do
