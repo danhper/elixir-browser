@@ -21,6 +21,8 @@ defmodule BrowserTest do
     ua = Fixtures.ua["ANDROID"]
 
     assert Browser.name(ua) == "Android"
+    assert Browser.full_browser_name(ua) == "Android 3.1.2"
+    assert Browser.full_display(ua) == "Android 3.1.2 on Android 1.5"
     assert Browser.android?(ua)
     refute Browser.safari?(ua)
     assert Browser.webkit?(ua)
@@ -35,6 +37,8 @@ defmodule BrowserTest do
     ua = Fixtures.ua["SURFACE"]
 
     assert Browser.name(ua) == "Internet Explorer"
+    assert Browser.full_browser_name(ua) == "Internet Explorer 10.0"
+    assert Browser.full_display(ua) == "Internet Explorer 10.0 on Windows RT"
     assert Browser.surface?(ua)
     assert Browser.ie?(ua)
     refute Browser.mobile?(ua)
@@ -47,6 +51,8 @@ defmodule BrowserTest do
     ua = Fixtures.ua["QUICKTIME"]
 
     assert Browser.name(ua) == "QuickTime"
+    assert Browser.full_browser_name(ua) == "QuickTime 7.6.8"
+    assert Browser.full_display(ua) == "QuickTime 7.6.8 on Windows XP"
     assert Browser.quicktime?(ua)
     assert Browser.full_version(ua) == "7.6.8"
     assert Browser.version(ua) == "7"
@@ -56,6 +62,8 @@ defmodule BrowserTest do
     ua = Fixtures.ua["COREMEDIA"]
 
     assert Browser.name(ua) == "Apple CoreMedia"
+    assert Browser.full_browser_name(ua) == "Apple CoreMedia 1.0.0.10F569"
+    assert Browser.full_display(ua) == "Apple CoreMedia 1.0.0.10F569 on MacOS"
     assert Browser.core_media?(ua)
     assert Browser.full_version(ua) == "1.0.0.10F569"
     assert Browser.version(ua) == "1"
@@ -65,6 +73,8 @@ defmodule BrowserTest do
     ua = Fixtures.ua["PHANTOM_JS"]
 
     assert Browser.name(ua) == "PhantomJS"
+    assert Browser.full_browser_name(ua) == "PhantomJS 1.9.0"
+    assert Browser.full_display(ua) == "PhantomJS 1.9.0 on MacOS"
     assert Browser.phantom_js?(ua)
     refute Browser.tablet?(ua)
     refute Browser.mobile?(ua)
@@ -101,6 +111,8 @@ defmodule BrowserTest do
   test "detects unknown name" do
     ua = "Unknown"
     assert Browser.name(ua) == "Other"
+    assert Browser.full_browser_name(ua) == "Other 0.0"
+    assert Browser.full_display(ua) == "Other 0.0 on Other"
   end
 
   test "detects ios platform" do
@@ -123,6 +135,49 @@ defmodule BrowserTest do
     ua = "Mac OS X"
     assert Browser.platform(ua)  == :mac
     assert Browser.mac?(ua)
+  end
+
+  test "detects mac version with underscore notation" do
+    ua = "Intel Mac OS X 10_13_1; en-us"
+    assert Browser.mac_version(ua) == "10.13.1"
+  end
+
+  test "detects mac version with dot notation" do
+    ua = "Intel Mac OS X 10.13.1; en-us"
+    assert Browser.mac_version(ua) == "10.13.1"
+  end
+
+  test "mac version name" do
+    ua_10_0 = "Intel Mac OS X 10_0_1; en-us"
+    ua_10_1 = "Intel Mac OS X 10_1_1; en-us"
+    ua_10_2 = "Intel Mac OS X 10_2_1; en-us"
+    ua_10_3 = "Intel Mac OS X 10_3_1; en-us"
+    ua_10_4 = "Intel Mac OS X 10_4_1; en-us"
+    ua_10_5 = "Intel Mac OS X 10_5_1; en-us"
+    ua_10_6 = "Intel Mac OS X 10_6_1; en-us"
+    ua_10_7 = "Intel Mac OS X 10_7_1; en-us"
+    ua_10_8 = "Intel Mac OS X 10_8_1; en-us"
+    ua_10_9 = "Intel Mac OS X 10_9_1; en-us"
+    ua_10_10 = "Intel Mac OS X 10_10_1; en-us"
+    ua_10_11 = "Intel Mac OS X 10_11_1; en-us"
+    ua_10_12 = "Intel Mac OS X 10_12_1; en-us"
+    ua_10_13 = "Intel Mac OS X 10_13_1; en-us"
+
+    assert Browser.mac_version_name(ua_10_13) == "High Sierra"
+    assert Browser.mac_version_name(ua_10_12) == "Sierra"
+    assert Browser.mac_version_name(ua_10_11) == "El Capitan"
+    assert Browser.mac_version_name(ua_10_10) == "Yosemite"
+    assert Browser.mac_version_name(ua_10_9) == "Mavericks"
+    assert Browser.mac_version_name(ua_10_8) == "Mountain Lion"
+    assert Browser.mac_version_name(ua_10_7) == "Lion"
+    assert Browser.mac_version_name(ua_10_6) == "Snow Leopard"
+    assert Browser.mac_version_name(ua_10_5) == "Leopard"
+    assert Browser.mac_version_name(ua_10_4) == "Tiger"
+    assert Browser.mac_version_name(ua_10_3) == "Panther"
+    assert Browser.mac_version_name(ua_10_2) == "Jaguar"
+    assert Browser.mac_version_name(ua_10_1) == "Puma"
+    assert Browser.mac_version_name(ua_10_0) == "Cheetah"
+    assert Browser.mac_version_name("Mac OS X") == ""
   end
 
   test "detects linux platform" do
@@ -214,6 +269,8 @@ defmodule BrowserTest do
     assert Browser.version(ua) == "13"
     assert Browser.full_version(ua) == "13.0"
     assert Browser.name(ua) == "Other"
+    assert Browser.full_browser_name(ua) == "Other 13.0"
+    assert Browser.full_display(ua) == "Other 13.0 on MacOS"
   end
 
   # android
@@ -314,6 +371,8 @@ defmodule BrowserTest do
     ua = Fixtures.ua["BLACKBERRY"]
 
     assert Browser.name(ua), "BlackBerry"
+    assert Browser.full_browser_name(ua) == "BlackBerry 4.1.0"
+    assert Browser.full_display(ua) == "BlackBerry 4.1.0 on BlackBerry"
     assert Browser.blackberry?(ua)
     refute Browser.tablet?(ua)
     assert Browser.mobile?(ua)
@@ -326,6 +385,8 @@ defmodule BrowserTest do
     ua = Fixtures.ua["BLACKBERRY4"]
 
     assert Browser.name(ua), "BlackBerry"
+    assert Browser.full_browser_name(ua) == "BlackBerry 4.2.1"
+    assert Browser.full_display(ua) == "BlackBerry 4.2.1 on BlackBerry 4"
     assert Browser.blackberry_version(ua) == "4"
     assert Browser.blackberry?(ua, 4)
     refute Browser.tablet?(ua)
@@ -339,6 +400,8 @@ defmodule BrowserTest do
     ua = Fixtures.ua["BLACKBERRY5"]
 
     assert Browser.name(ua), "BlackBerry"
+    assert Browser.full_browser_name(ua) == "BlackBerry 5.0.0.93"
+    assert Browser.full_display(ua) == "BlackBerry 5.0.0.93 on BlackBerry 5"
     assert Browser.blackberry?(ua, 5)
     assert Browser.blackberry_version(ua) == "5"
     refute Browser.tablet?(ua)
@@ -352,6 +415,8 @@ defmodule BrowserTest do
     ua = Fixtures.ua["BLACKBERRY6"]
 
     assert Browser.name(ua) =="Safari"
+    assert Browser.full_browser_name(ua) == "Safari 534.11"
+    assert Browser.full_display(ua) == "Safari 534.11 on BlackBerry 6"
     assert Browser.blackberry?(ua, 6)
     assert Browser.blackberry_version(ua) == "6"
     refute Browser.tablet?(ua)
@@ -365,6 +430,8 @@ defmodule BrowserTest do
     ua = Fixtures.ua["BLACKBERRY7"]
 
     assert Browser.name(ua) =="Safari"
+    assert Browser.full_browser_name(ua) == "Safari 534.11"
+    assert Browser.full_display(ua) == "Safari 534.11 on BlackBerry 7"
     assert Browser.blackberry?(ua, 7)
     assert Browser.blackberry_version(ua) == "7"
     refute Browser.tablet?(ua)
@@ -378,6 +445,8 @@ defmodule BrowserTest do
     ua = Fixtures.ua["BLACKBERRY10"]
 
     assert Browser.name(ua) =="Safari"
+    assert Browser.full_browser_name(ua) == "Safari 10.0.9.1675"
+    assert Browser.full_display(ua) == "Safari 10.0.9.1675 on BlackBerry 10"
     assert Browser.blackberry_version(ua) =="10"
     assert Browser.blackberry?(ua, 10)
     refute Browser.tablet?(ua)
@@ -512,6 +581,8 @@ defmodule BrowserTest do
     ua = Fixtures.ua["CHROME"]
 
     assert Browser.name(ua) =="Chrome"
+    assert Browser.full_browser_name(ua) == "Chrome 5.0.375.99"
+    assert Browser.full_display(ua) == "Chrome 5.0.375.99 on MacOS 10.6.4 Snow Leopard"
     assert Browser.chrome?(ua)
     refute Browser.safari?(ua)
     assert Browser.webkit?(ua)
@@ -524,6 +595,8 @@ defmodule BrowserTest do
     ua = Fixtures.ua["MOBILE_CHROME"]
 
     assert Browser.name(ua) =="Chrome"
+    assert Browser.full_browser_name(ua) == "Chrome 19.0.1084.60"
+    assert Browser.full_display(ua) == "Chrome 19.0.1084.60 on iOS 5"
     assert Browser.chrome?(ua)
     refute Browser.safari?(ua)
     assert Browser.webkit?(ua)
@@ -536,6 +609,8 @@ defmodule BrowserTest do
     ua = Fixtures.ua["SAMSUNG_CHROME"]
 
     assert Browser.name(ua) =="Chrome"
+    assert Browser.full_browser_name(ua) == "Chrome 28.0.1500.94"
+    assert Browser.full_display(ua) == "Chrome 28.0.1500.94 on Android 4.4.2"
     assert Browser.chrome?(ua)
     assert Browser.android?(ua)
     refute Browser.safari?(ua)
@@ -612,6 +687,8 @@ defmodule BrowserTest do
     ua = Fixtures.ua["PSP"]
 
     assert Browser.name(ua) == "PlayStation Portable"
+    assert Browser.full_browser_name(ua) == "PlayStation Portable 0.0"
+    assert Browser.full_display(ua) == "PlayStation Portable 0.0 on Other"
     assert Browser.psp?(ua)
     refute Browser.psp_vita?(ua)
     assert Browser.mobile?(ua)
@@ -621,6 +698,7 @@ defmodule BrowserTest do
     ua = Fixtures.ua["PSP_VITA"]
 
     assert Browser.name(ua) == "PlayStation Portable"
+    assert Browser.full_display(ua) == "PlayStation Portable 0.0 on Other"
     assert Browser.psp?(ua)
     assert Browser.psp_vita?(ua)
     assert Browser.mobile?(ua)
@@ -632,6 +710,8 @@ defmodule BrowserTest do
     ua = Fixtures.ua["FIREFOX"]
 
     assert Browser.name(ua) == "Firefox"
+    assert Browser.full_browser_name(ua) == "Firefox 3.8"
+    assert Browser.full_display(ua) == "Firefox 3.8 on Linux"
     assert Browser.firefox?(ua)
     refute Browser.modern?(ua)
     assert Browser.full_version(ua) == "3.8"
@@ -643,6 +723,8 @@ defmodule BrowserTest do
 
     assert Browser.id(ua) == :firefox
     assert Browser.name(ua) == "Firefox"
+    assert Browser.full_browser_name(ua) == "Firefox 17.0"
+    assert Browser.full_display(ua) == "Firefox 17.0 on Linux"
     assert Browser.firefox?(ua)
     assert Browser.modern?(ua)
     assert Browser.full_version(ua) == "17.0"
@@ -654,6 +736,8 @@ defmodule BrowserTest do
 
     assert Browser.id(ua) == :firefox
     assert Browser.name(ua) == "Firefox"
+    assert Browser.full_browser_name(ua) == "Firefox 14.0"
+    assert Browser.full_display(ua) == "Firefox 14.0 on Android"
     assert Browser.firefox?(ua)
     assert Browser.modern?(ua)
     assert Browser.tablet?(ua)
@@ -668,6 +752,8 @@ defmodule BrowserTest do
     ua = Fixtures.ua["IE6"]
 
     assert Browser.name(ua) == "Internet Explorer"
+    assert Browser.full_browser_name(ua) == "Internet Explorer 6.0"
+    assert Browser.full_display(ua) == "Internet Explorer 6.0 on Windows XP"
     assert Browser.ie?(ua)
     assert Browser.ie?(ua, 6)
     refute Browser.modern?(ua)
@@ -679,6 +765,8 @@ defmodule BrowserTest do
     ua = Fixtures.ua["IE7"]
 
     assert Browser.name(ua) == "Internet Explorer"
+    assert Browser.full_browser_name(ua) == "Internet Explorer 7.0"
+    assert Browser.full_display(ua) == "Internet Explorer 7.0 on Windows Vista"
     assert Browser.ie?(ua)
     assert Browser.ie?(ua, 7)
     refute Browser.modern?(ua)
@@ -690,6 +778,8 @@ defmodule BrowserTest do
     ua = Fixtures.ua["IE8"]
 
     assert Browser.name(ua) == "Internet Explorer"
+    assert Browser.full_browser_name(ua) == "Internet Explorer 8.0"
+    assert Browser.full_display(ua) == "Internet Explorer 8.0 on Windows 8"
     assert Browser.ie?(ua)
     assert Browser.ie?(ua, 8)
     refute Browser.modern?(ua)
@@ -702,6 +792,8 @@ defmodule BrowserTest do
     ua = Fixtures.ua["IE8_COMPAT"]
 
     assert Browser.name(ua) == "Internet Explorer"
+    assert Browser.full_browser_name(ua) == "Internet Explorer 8.0"
+    assert Browser.full_display(ua) == "Internet Explorer 8.0 on Windows Vista"
     assert Browser.ie?(ua)
     assert Browser.ie?(ua, 8)
     refute Browser.modern?(ua)
@@ -716,6 +808,8 @@ defmodule BrowserTest do
     ua = Fixtures.ua["IE9"]
 
     assert Browser.name(ua) == "Internet Explorer"
+    assert Browser.full_browser_name(ua) == "Internet Explorer 9.0"
+    assert Browser.full_display(ua) == "Internet Explorer 9.0 on Windows 7"
     assert Browser.ie?(ua)
     assert Browser.ie?(ua, 9)
     assert Browser.modern?(ua)
@@ -728,6 +822,8 @@ defmodule BrowserTest do
     ua = Fixtures.ua["IE9_COMPAT"]
 
     assert Browser.name(ua) == "Internet Explorer"
+    assert Browser.full_browser_name(ua) == "Internet Explorer 9.0"
+    assert Browser.full_display(ua) == "Internet Explorer 9.0 on Windows Vista"
     assert Browser.ie?(ua)
     assert Browser.ie?(ua, 9)
     refute Browser.modern?(ua)
@@ -742,6 +838,8 @@ defmodule BrowserTest do
     ua = Fixtures.ua["IE10"]
 
     assert Browser.name(ua) == "Internet Explorer"
+    assert Browser.full_browser_name(ua) == "Internet Explorer 10.0"
+    assert Browser.full_display(ua) == "Internet Explorer 10.0 on Windows 7"
     assert Browser.ie?(ua)
     assert Browser.ie?(ua, 10)
     assert Browser.modern?(ua)
@@ -754,6 +852,8 @@ defmodule BrowserTest do
     ua = Fixtures.ua["IE10_COMPAT"]
 
     assert Browser.name(ua) == "Internet Explorer"
+    assert Browser.full_browser_name(ua) == "Internet Explorer 10.0"
+    assert Browser.full_display(ua) == "Internet Explorer 10.0 on Windows 7"
     assert Browser.ie?(ua)
     assert Browser.ie?(ua, 10)
     refute Browser.modern?(ua)
@@ -768,6 +868,8 @@ defmodule BrowserTest do
     ua = Fixtures.ua["IE11"]
 
     assert Browser.name(ua) == "Internet Explorer"
+    assert Browser.full_browser_name(ua) == "Internet Explorer 11.0"
+    assert Browser.full_display(ua) == "Internet Explorer 11.0 on Windows 7"
     assert Browser.ie?(ua)
     assert Browser.ie?(ua, 11)
     assert Browser.modern?(ua)
@@ -780,6 +882,8 @@ defmodule BrowserTest do
     ua = Fixtures.ua["IE11_COMPAT"]
 
     assert Browser.name(ua) == "Internet Explorer"
+    assert Browser.full_browser_name(ua) == "Internet Explorer 11.0"
+    assert Browser.full_display(ua) == "Internet Explorer 11.0 on Windows 8.1"
     assert Browser.ie?(ua)
     assert Browser.ie?(ua, 11)
     refute Browser.modern?(ua)
@@ -794,6 +898,8 @@ defmodule BrowserTest do
     ua = Fixtures.ua["LUMIA800"]
 
     assert Browser.name(ua) == "Internet Explorer"
+    assert Browser.full_browser_name(ua) == "Internet Explorer 9.0"
+    assert Browser.full_display(ua) == "Internet Explorer 9.0 on Windows 7"
     assert Browser.ie?(ua)
     assert Browser.ie?(ua, 9)
     assert Browser.full_version(ua) == "9.0"
@@ -806,6 +912,8 @@ defmodule BrowserTest do
     ua = Fixtures.ua["IE11_TOUCH_SCREEN"]
 
     assert Browser.name(ua) == "Internet Explorer"
+    assert Browser.full_browser_name(ua) == "Internet Explorer 11.0"
+    assert Browser.full_display(ua) == "Internet Explorer 11.0 on Windows 8.1"
     assert Browser.ie?(ua)
     assert Browser.ie?(ua, 11)
     assert Browser.modern?(ua)
@@ -822,6 +930,8 @@ defmodule BrowserTest do
 
     assert Browser.id(ua) == :edge
     assert Browser.name(ua) == "Microsoft Edge"
+    assert Browser.full_browser_name(ua) == "Microsoft Edge 12.0"
+    assert Browser.full_display(ua) == "Microsoft Edge 12.0 on Windows 10"
     assert Browser.full_version(ua) == "12.0"
     assert Browser.version(ua) == "12"
     assert Browser.windows10?(ua)
@@ -838,6 +948,8 @@ defmodule BrowserTest do
 
     assert Browser.id(ua) == :edge
     assert Browser.name(ua) == "Microsoft Edge"
+    assert Browser.full_browser_name(ua) == "Microsoft Edge 12.0"
+    assert Browser.full_display(ua) == "Microsoft Edge 12.0 on Windows 8"
     assert Browser.full_version(ua) == "12.0"
     assert Browser.version(ua) == "12"
     assert Browser.msie_full_version(ua) == "7.0"
@@ -856,6 +968,8 @@ defmodule BrowserTest do
 
     assert Browser.id(ua) == :edge
     assert Browser.name(ua) == "Microsoft Edge"
+    assert Browser.full_browser_name(ua) == "Microsoft Edge 12.0"
+    assert Browser.full_display(ua) == "Microsoft Edge 12.0 on Android 4.2.1"
     assert Browser.full_version(ua) == "12.0"
     assert Browser.version(ua) == "12"
     refute Browser.windows10?(ua)
@@ -873,6 +987,8 @@ defmodule BrowserTest do
 
     assert Browser.id(ua) == :ie
     assert Browser.name(ua) == "Internet Explorer"
+    assert Browser.full_browser_name(ua) == "Internet Explorer 8.0"
+    assert Browser.full_display(ua) == "Internet Explorer 8.0 on Windows Vista"
     assert Browser.msie_full_version(ua) == "8.0"
     assert Browser.msie_version(ua) == "8"
     assert Browser.full_version(ua) == "8.0"
@@ -893,6 +1009,8 @@ defmodule BrowserTest do
     ua = Fixtures.ua["IE9_WITHOUT_TRIDENT"]
 
     assert Browser.name(ua) == "Internet Explorer"
+    assert Browser.full_browser_name(ua) == "Internet Explorer 9.0"
+    assert Browser.full_display(ua) == "Internet Explorer 9.0 on Windows 7"
     assert Browser.ie?(ua)
     assert Browser.ie?(ua, 9)
     assert Browser.modern?(ua)
@@ -930,6 +1048,8 @@ defmodule BrowserTest do
 
     assert Browser.ie?(ua)
     assert Browser.name(ua) == "Internet Explorer"
+    assert Browser.full_browser_name(ua) == "Internet Explorer 11.0"
+    assert Browser.full_display(ua) == "Internet Explorer 11.0 on iOS 7"
     assert Browser.id(ua) == :ie
     assert Browser.version(ua) == "11"
     assert Browser.full_version(ua) == "11.0"
@@ -1013,12 +1133,38 @@ defmodule BrowserTest do
     refute Browser.ie?(ua, 7)
   end
 
+  test "detects windows version" do
+    phone = Fixtures.ua["WINDOWS_PHONE"]
+    phone8 = Fixtures.ua["WINDOWS_PHONE8"]
+    phone81 = Fixtures.ua["WINDOWS_PHONE_81"]
+    none = "Windows"
+    xp = Fixtures.ua["WINDOWS_XP"]
+    vista = Fixtures.ua["WINDOWS_VISTA"]
+    win7 = Fixtures.ua["WINDOWS7"]
+    win8 = Fixtures.ua["WINDOWS8"]
+    win81 = Fixtures.ua["WINDOWS81"]
+    win10 = Fixtures.ua["MS_EDGE"]
+
+    assert Browser.windows_version_name(phone) == "Phone"
+    assert Browser.windows_version_name(phone8) == "Phone"
+    assert Browser.windows_version_name(phone81) == "Phone"
+    assert Browser.windows_version_name(none) == ""
+    assert Browser.windows_version_name(xp) == "XP"
+    assert Browser.windows_version_name(vista) == "Vista"
+    assert Browser.windows_version_name(win7) == "7"
+    assert Browser.windows_version_name(win8) == "8"
+    assert Browser.windows_version_name(win81) == "8.1"
+    assert Browser.windows_version_name(win10) == "10"
+  end
+
   # ios
 
    test "detects iphone" do
     ua = Fixtures.ua["IPHONE"]
 
     assert Browser.name(ua) == "iPhone"
+    assert Browser.full_browser_name(ua) == "iPhone 3.0"
+    assert Browser.full_display(ua) == "iPhone 3.0 on iOS 3"
     assert Browser.iphone?(ua)
     assert Browser.safari?(ua)
     assert Browser.webkit?(ua)
@@ -1035,6 +1181,8 @@ defmodule BrowserTest do
     ua = Fixtures.ua["SAFARI"]
 
     assert Browser.name(ua) == "Safari"
+    assert Browser.full_browser_name(ua) == "Safari 5.0.1"
+    assert Browser.full_display(ua) == "Safari 5.0.1 on MacOS 10.6.4 Snow Leopard"
     assert Browser.safari?(ua)
     assert Browser.webkit?(ua)
     assert Browser.modern?(ua)
@@ -1054,6 +1202,8 @@ defmodule BrowserTest do
     ua = Fixtures.ua["IPOD"]
 
     assert Browser.name(ua) == "iPod Touch"
+    assert Browser.full_browser_name(ua) == "iPod Touch 3.0"
+    assert Browser.full_display(ua) == "iPod Touch 3.0 on iOS"
     assert Browser.ipod?(ua)
     assert Browser.safari?(ua)
     assert Browser.webkit?(ua)
@@ -1070,6 +1220,8 @@ defmodule BrowserTest do
     ua = Fixtures.ua["IPAD"]
 
     assert Browser.name(ua) == "iPad"
+    assert Browser.full_browser_name(ua) == "iPad 4.0.4"
+    assert Browser.full_display(ua) == "iPad 4.0.4 on iOS 3"
     assert Browser.ipad?(ua)
     assert Browser.safari?(ua)
     assert Browser.webkit?(ua)
@@ -1086,6 +1238,8 @@ defmodule BrowserTest do
     ua = Fixtures.ua["IPAD_GSA"]
 
     assert Browser.name(ua) == "iPad"
+    assert Browser.full_browser_name(ua) == "iPad 13.1.72140"
+    assert Browser.full_display(ua) == "iPad 13.1.72140 on iOS 9"
     assert Browser.ipad?(ua)
     assert Browser.safari?(ua)
     assert Browser.webkit?(ua)
@@ -1188,6 +1342,8 @@ defmodule BrowserTest do
     ua = Fixtures.ua["OPERA"]
 
     assert Browser.name(ua) == "Opera"
+    assert Browser.full_browser_name(ua) == "Opera 11.64"
+    assert Browser.full_display(ua) == "Opera 11.64 on MacOS 10.7.4 Lion"
     assert Browser.opera?(ua)
     refute Browser.modern?(ua)
     assert Browser.full_version(ua) == "11.64"
@@ -1198,6 +1354,8 @@ defmodule BrowserTest do
     ua = Fixtures.ua["OPERA_NEXT"]
 
     assert Browser.name(ua) == "Opera"
+    assert Browser.full_browser_name(ua) == "Opera 15.0.1147.44"
+    assert Browser.full_display(ua) == "Opera 15.0.1147.44 on MacOS 10.8.4 Mountain Lion"
     assert Browser.id(ua) == :opera
     assert Browser.opera?(ua)
     assert Browser.webkit?(ua)
@@ -1227,6 +1385,8 @@ defmodule BrowserTest do
     ua = Fixtures.ua["INVALID"]
 
     assert Browser.name(ua) == "Other"
+    assert Browser.full_browser_name(ua) == "Other 0.0"
+    assert Browser.full_display(ua) == "Other 0.0 on Other"
     assert Browser.id(ua) == :other
     assert Browser.full_version(ua) == "0.0"
     assert Browser.version(ua) == "0"

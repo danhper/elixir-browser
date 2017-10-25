@@ -78,6 +78,43 @@ defmodule Browser do
     @names[id(input)]
   end
 
+  def full_browser_name(input) do
+    [
+      name(input),
+      full_version(input)
+    ]
+    |> Enum.reject(&is_nil/1)
+    |> Enum.reject(fn(x) -> x |> String.trim |> String.length == 0 end)
+    |> Enum.join(" ")
+  end
+
+  def full_platform_name(input) do
+    case platform(input) do
+      :ios -> ["iOS", ios_version(input)]
+      :android -> ["Android", android_version(input)]
+      :linux -> "Linux"
+      :mac -> ["MacOS", mac_version(input), mac_version_name(input)]
+      :windows -> ["Windows", windows_version_name(input)]
+      :chrome_os -> "ChromeOS"
+      :blackberry -> ["BlackBerry", blackberry_version(input)]
+      :other -> "Other"
+    end
+    |> List.wrap
+    |> Enum.reject(&is_nil/1)
+    |> Enum.reject(fn(x) -> x |> String.trim |> String.length == 0 end)
+    |> Enum.join(" ")
+  end
+
+  def full_display(input) do
+    [
+      full_browser_name(input),
+      full_platform_name(input)
+    ]
+    |> Enum.reject(&is_nil/1)
+    |> Enum.reject(fn(x) -> x |> String.trim |> String.length == 0 end)
+    |> Enum.join(" on ")
+  end
+
   def id(input) do
     ua = Ua.to_ua(input)
     @names |> Keyword.keys |> Enum.find(fn id ->
@@ -234,7 +271,7 @@ defmodule Browser do
   end
 
   defp bot_with_empty_ua?(ua, options) do
-    options[:detect_empty_ua] && String.strip(ua) == ""
+    options[:detect_empty_ua] && String.trim(ua) == ""
   end
 
   # Consoles
@@ -423,8 +460,50 @@ defmodule Browser do
     (input |> Ua.to_ua |> String.match?(~r/Mac OS X/)) and not ios?(input)
   end
 
+  def mac_version(input) do
+    case Enum.at(Regex.run(~r/Mac OS X ([\d\.\_]+)/, Ua.to_ua(input)) || [], 1) do
+      nil -> ""
+      version -> String.replace(version, "_", ".")
+    end
+  end
+
+  def mac_version_name(input) do
+    case Enum.at(Regex.run(~r/(\d+\.\d+)/, mac_version(input)) || [], 1) do
+      "10.13" -> "High Sierra"
+      "10.12" -> "Sierra"
+      "10.11" -> "El Capitan"
+      "10.10" -> "Yosemite"
+      "10.9" -> "Mavericks"
+      "10.8" -> "Mountain Lion"
+      "10.7" -> "Lion"
+      "10.6" -> "Snow Leopard"
+      "10.5" -> "Leopard"
+      "10.4" -> "Tiger"
+      "10.3" -> "Panther"
+      "10.2" -> "Jaguar"
+      "10.1" -> "Puma"
+      "10.0" -> "Cheetah"
+      _ -> ""
+    end
+  end
+
   def windows?(input) do
     input |> Ua.to_ua |> String.match?(~r/(Windows)/)
+  end
+
+  def windows_version_name(input) do
+    cond do
+      windows_rt?(input) -> "RT"
+      windows_mobile?(input) -> "Mobile"
+      windows_phone?(input) -> "Phone"
+      windows_xp?(input) -> "XP"
+      windows_vista?(input) -> "Vista"
+      windows7?(input) -> "7"
+      windows8_1?(input) -> "8.1"
+      windows8?(input) -> "8"
+      windows10?(input) -> "10"
+      true -> ""
+    end
   end
 
   def windows_xp?(input) do
@@ -490,6 +569,8 @@ defmodule Browser do
       linux?(input) -> :linux
       mac?(input) -> :mac
       windows?(input) -> :windows
+      chrome_os?(input) -> :chrome_os
+      blackberry?(input) -> :blackberry
       true -> :other
     end
   end

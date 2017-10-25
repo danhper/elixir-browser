@@ -24,6 +24,8 @@ ua = "some string"
 Browser.name(ua)            # readable browser name
 Browser.version(ua)         # major version number
 Browser.full_version(ua)
+Browser.full_browser_name(ua) # Chrome 5.0.375.99
+Browser.full_display(ua)    # example: Chrome 5.0.375.99 on MacOS 10.6.4 Snow Leopard
 Browser.safari?(ua)
 Browser.opera?(ua)
 Browser.chrome?(ua)
@@ -37,12 +39,15 @@ Browser.ie?(ua, 6)          # detect specific IE version
 Browser.edge?(ua)           # Newest MS browser
 Browser.modern?(ua)         # Webkit, Firefox 17+, IE 9+ and Opera 12+
 Browser.platform(ua)        # return :ios, :android, :mac, :windows, :linux or :other
+Browser.full_platform_name(ua) # example: MacOS 10.6.4 Snow Leopard
 Browser.device_type(ua)     # return :mobile, :tablet, :desktop, :console, :unknown
 Browser.ios?(ua)            # detect iOS
 Browser.ios?(ua, 9)         # detect specific iOS version
 Browser.mac?(ua)
+Browser.mac_version(ua)     # display version of Mac OSX. i.e. High Sierra
 Browser.windows?(ua)
 Browser.windows_x64?(ua)
+Browser.windows_version_name # display version of Windows.  i.e. Windows 10
 Browser.linux?(ua)
 Browser.blackberry?(ua)
 Browser.blackberry?(ua, 10) # detect specific BlackBerry version
