@@ -31,7 +31,7 @@ defmodule BrowserTest do
     assert Browser.version(ua) == "3"
   end
 
-  test "detects urface tablet" do
+  test "detects surface tablet" do
     ua = Fixtures.ua["SURFACE"]
 
     assert Browser.name(ua) == "Internet Explorer"
@@ -134,6 +134,31 @@ defmodule BrowserTest do
   test "detects unknown platform" do
     ua = "Unknown"
     assert Browser.platform(ua)  == :other
+  end
+
+  test "detects mobile device type" do
+    ua = Fixtures.ua["IPHONE"]
+    assert Browser.device_type(ua) == :mobile
+  end
+
+  test "detects tablet device type" do
+    ua = Fixtures.ua["IPAD"]
+    assert Browser.device_type(ua) == :tablet
+  end
+
+  test "detects console device type" do
+    ua = Fixtures.ua["XBOXONE"]
+    assert Browser.device_type(ua) == :console
+  end
+
+  test "detects desktop device type" do
+    ua = Fixtures.ua["CHROME"]
+    assert Browser.device_type(ua) == :desktop
+  end
+
+  test "detects unknown device type" do
+    ua = "Unknown"
+    assert Browser.device_type(ua)  == :unknown
   end
 
   test "detects xoom" do
