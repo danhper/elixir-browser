@@ -1,7 +1,7 @@
 defmodule Browser.Helpers do
   def read_file(name) do
     File.read!(Path.expand(name))
-      |> String.strip
+      |> String.trim()
       |> String.split("\n")
       |> Enum.map(&String.split(&1, "\t"))
       |> Enum.map(fn [a,b] -> {a, b} end)

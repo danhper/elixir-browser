@@ -10,7 +10,7 @@ defmodule Browser.Mixfile do
      package: package(),
      description: description(),
      licenses: "MIT",
-     elixir: "~> 1.2",
+     elixir: "~> 1.3",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      deps: deps()]
