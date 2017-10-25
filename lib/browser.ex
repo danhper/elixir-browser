@@ -306,6 +306,16 @@ defmodule Browser do
     windows?(input) and (input |> Ua.to_ua |> String.match?(~r/Touch/))
   end
 
+  def device_type(input) do
+    cond do
+      mobile?(input) -> :mobile
+      tablet?(input) -> :tablet
+      console?(input) -> :console
+      known?(input) -> :desktop
+      true -> :unknown
+    end
+  end
+
   # IE
   @trident_version_regex ~r{Trident/([0-9.]+)}
   @modern_ie ~r{Trident/.*?; rv:(.*?)}
