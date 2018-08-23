@@ -440,7 +440,7 @@ defmodule Browser do
 
   def android?(input, version \\ nil) do
     ua = Ua.to_ua(input)
-    String.match?(ua, ~r/Android/) and not opera?(ua) and detect_version?(android_version(ua), version)
+    String.match?(ua, ~r/Android/) and detect_version?(android_version(ua), version)
   end
 
   def android_version(input) do

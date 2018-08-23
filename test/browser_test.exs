@@ -1381,6 +1381,14 @@ defmodule BrowserTest do
     assert Browser.mobile?(ua)
   end
 
+  # bug https://github.com/tuvistavie/elixir-browser/issues/13
+  test "detects opera on android" do
+    ua = Fixtures.ua["OPERA_ANDROID"]
+
+    assert Browser.opera?(ua)
+    assert Browser.android?(ua)
+  end
+
   test "fallbacks to other on unknown UA" do
     ua = Fixtures.ua["INVALID"]
 
