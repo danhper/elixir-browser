@@ -1,4 +1,5 @@
 defmodule Browser.Helpers do
+  @moduledoc false
   def read_file(name) do
     File.read!(Path.expand(name))
       |> String.trim()

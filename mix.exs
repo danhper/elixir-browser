@@ -3,17 +3,20 @@ defmodule Browser.Mixfile do
 
   def project do
     [app: :browser,
-     version: "0.4.1",
+     version: "0.4.2",
      name: "browser",
      source_url: "https://github.com/tuvistavie/elixir-browser",
      homepage_url: "https://github.com/tuvistavie/elixir-browser",
      package: package(),
      description: description(),
-     licenses: "MIT",
      elixir: "~> 1.3",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     deps: deps()]
+     deps: deps(),
+     docs: [
+       main: "readme",
+       extras: ["README.md"]
+     ]]
   end
 
   defp description() do
@@ -36,7 +39,7 @@ defmodule Browser.Mixfile do
   defp deps() do
     [{:plug, "~> 1.2", optional: true},
      {:earmark, "~> 1.0", only: :dev},
-     {:ex_doc, "~> 0.13", only: :dev},
+     {:ex_doc, "~> 0.19", only: :dev},
      {:mix_test_watch, "~> 0.2", only: :dev}]
   end
 end
