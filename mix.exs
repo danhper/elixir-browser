@@ -3,7 +3,7 @@ defmodule Browser.Mixfile do
 
   def project do
     [app: :browser,
-     version: "0.4.2",
+     version: "0.4.3",
      name: "browser",
      source_url: "https://github.com/tuvistavie/elixir-browser",
      homepage_url: "https://github.com/tuvistavie/elixir-browser",
