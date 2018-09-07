@@ -1389,6 +1389,16 @@ defmodule BrowserTest do
     assert Browser.android?(ua)
   end
 
+  test "detects UC Browser" do
+    ua = Fixtures.ua["UC_BROWSER"]
+
+    assert Browser.name(ua) == "UC Browser"
+    assert Browser.version(ua) == "8"
+    assert Browser.uc_browser?(ua)
+    refute Browser.tablet?(ua)
+    assert Browser.mobile?(ua)
+  end
+
   test "fallbacks to other on unknown UA" do
     ua = Fixtures.ua["INVALID"]
 
