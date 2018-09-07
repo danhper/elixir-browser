@@ -28,6 +28,7 @@ defmodule Browser do
     ie: "Internet Explorer",  # Must come before android
     chrome: "Chrome",         # Must come before android
     firefox: "Firefox",       # Must come before android
+    uc_browser: "UC Browser", # Must come before android
     android: "Android",
     blackberry_running_safari: "Safari",
     blackberry: "BlackBerry",
@@ -50,7 +51,7 @@ defmodule Browser do
   @versions %{
     edge: ~r{Edge/([\d.]+)},
     chrome: ~r{(?:Chrome|CriOS)/([\d.]+)},
-    default: ~r{(?:Version|MSIE|Firefox|QuickTime|BlackBerry[^/]+|CoreMedia v|PhantomJS|AdobeAIR|GSA)[/ ]?([a-z0-9.]+)}i,
+    default: ~r{(?:Version|MSIE|Firefox|QuickTime|BlackBerry[^/]+|CoreMedia v|PhantomJS|AdobeAIR|GSA|UCBrowser)[/ ]?([a-z0-9.]+)}i,
     opera: ~r{(?:Opera/.*? Version/([\d.]+)|Chrome/.*?OPR/([\d.]+))},
     ie: ~r{(?:MSIE |Trident/.*?; rv:)([\d.]+)}
   }
@@ -212,6 +213,10 @@ defmodule Browser do
 
   def opera?(input) do
     input |> Ua.to_ua |> String.match?(~r/(Opera|OPR)/)
+  end
+
+  def uc_browser?(input) do
+    input |> Ua.to_ua |> String.match?(~r/(UCBrowser)/)
   end
 
   def silk?(input) do
