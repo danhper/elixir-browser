@@ -470,6 +470,9 @@ defmodule BrowserTest do
 
   # bots
   test "detects bots" do
+    refute Browser.bot?("")
+    refute Browser.bot?(%Plug.Conn{})
+
     Enum.each ~w[
       APPLE_BOT
       DOT_BOT
@@ -487,6 +490,11 @@ defmodule BrowserTest do
     ], fn key ->
       ua = Fixtures.ua[key]
       assert Browser.bot?(ua), "#{Fixtures.ua[key]} should be a bot"
+
+      conn =
+        %Plug.Conn{}
+        |> Plug.Conn.put_req_header("user-agent", ua)
+      assert Browser.bot?(conn), "#{Fixtures.ua[key]} should be a bot"
     end
 
     ua = Fixtures.ua["CHROME"]
@@ -535,6 +543,9 @@ defmodule BrowserTest do
   end
 
   test "detects as search engines" do
+    refute Browser.search_engine?("")
+    refute Browser.search_engine?(%Plug.Conn{})
+
     Enum.each ~w[
       ASK
       BAIDU
@@ -545,6 +556,11 @@ defmodule BrowserTest do
     ], fn key ->
       ua = Fixtures.ua[key]
       assert Browser.search_engine?(ua), "#{Fixtures.ua[key]} should be a search engine"
+
+      conn =
+        %Plug.Conn{}
+        |> Plug.Conn.put_req_header("user-agent", ua)
+      assert Browser.search_engine?(conn), "#{Fixtures.ua[key]} should be a search engine"
     end
   end
 

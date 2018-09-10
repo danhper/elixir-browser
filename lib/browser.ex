@@ -271,8 +271,9 @@ defmodule Browser do
     end
   end
 
-  def search_engine?(ua) do
-    Enum.any? @search_engines, fn {name, _} -> String.contains?(ua, name) end
+  def search_engine?(input) do
+    ua = Ua.to_ua(input) |> String.downcase
+    Enum.any? @search_engines, fn {name, _} -> String.contains?(ua, String.downcase(name)) end
   end
 
   defp bot_with_empty_ua?(ua, options) do
