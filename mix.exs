@@ -3,10 +3,10 @@ defmodule Browser.Mixfile do
 
   def project do
     [app: :browser,
-     version: "0.4.3",
+     version: "0.4.4",
      name: "browser",
-     source_url: "https://github.com/tuvistavie/elixir-browser",
-     homepage_url: "https://github.com/tuvistavie/elixir-browser",
+     source_url: "https://github.com/danhper/elixir-browser",
+     homepage_url: "https://github.com/danhper/elixir-browser",
      package: package(),
      description: description(),
      elixir: "~> 1.3",
@@ -28,7 +28,7 @@ defmodule Browser.Mixfile do
       files: ["lib", "mix.exs", "README.md", "LICENSE", "bots.txt", "search_engines.txt"],
       maintainers: ["Daniel Perez"],
       licenses: ["MIT"],
-      links: %{"GitHub" => "https://github.com/tuvistavie/elixir-browser"}
+      links: %{"GitHub" => "https://github.com/danhper/elixir-browser"}
     ]
   end
 
