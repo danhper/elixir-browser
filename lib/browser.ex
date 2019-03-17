@@ -459,7 +459,7 @@ defmodule Browser do
   end
 
   def ios_version(input) do
-    Enum.at(Regex.run(~r/OS (\d)/, Ua.to_ua(input)) || [], 1)
+    Enum.at(Regex.run(~r/OS (\d+)/, Ua.to_ua(input)) || [], 1)
   end
 
   def mac?(input) do
@@ -475,6 +475,7 @@ defmodule Browser do
 
   def mac_version_name(input) do
     case Enum.at(Regex.run(~r/(\d+\.\d+)/, mac_version(input)) || [], 1) do
+      "10.14" -> "Mojave"
       "10.13" -> "High Sierra"
       "10.12" -> "Sierra"
       "10.11" -> "El Capitan"
