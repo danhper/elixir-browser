@@ -13,7 +13,7 @@ Add `browser` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
-  [{:browser, "~> 0.1.0"}]
+  [{:browser, "~> 0.4.4"}]
 end
 ```
 
