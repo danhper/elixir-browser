@@ -257,7 +257,10 @@ defmodule Browser do
   def bot?(input, options \\ []) do
     ua = Ua.to_ua(input) |> String.downcase
     bot_with_empty_ua?(ua, options) ||
-      Enum.any? @bots, fn {name, _} -> String.contains?(ua, name) end
+      Enum.any? @bots, fn {name, _} ->
+        Regex.match?(~r/crawl|fetch|search|monitoring|spider|bot/, ua) or
+          String.contains?(ua, name)
+      end
   end
 
   def bot_name(input, options \\ []) do
