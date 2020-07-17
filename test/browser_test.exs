@@ -506,6 +506,19 @@ defmodule BrowserTest do
     end
   end
 
+  test "respects bot_exceptions" do
+    test_cases = [
+      "ruby build",
+      "pinterest/android",
+      "pinterest/ios",
+      "yandexsearchbrowser"
+    ]
+
+    for ua <- test_cases do
+      refute Browser.bot?(ua), "#{ua} should not be a bot"
+    end
+  end
+
   test "detects Google Page Speed as a bot" do
     ua = Fixtures.ua["GOOGLE_PAGE_SPEED_INSIGHTS"]
     assert Browser.bot?(ua)
