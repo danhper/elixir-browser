@@ -5,19 +5,23 @@ addthis	AddThis
 adldxbot	Microsoft Bing Ads
 admantx	ADmantX Platform Semantic Analyzer
 adsbot-google	Google Adwords
+adstxtcrawler	AdsTxtCrawler
 advbot	AdvBot
 ahrefsbot	Ahrefs backlinks research tool
 alexa	Alexa Crawler
+anderspink	AndersPinkBot
 apache-httpclient	Java http library
 apachebench	ApacheBench (ab)
 apis-google	APIs-Google
 appengine-google	Google App Engine
 applebot	Apple Bot
 archive.org_bot	Internet Archive (archive.org)
+archiveteam archivebot	ArchiveTeam ArchiveBot
 ask jeeves	Ask Jeeves
 asynchttpclient	Java http and WebSocket client library
 awe.sm	Awe.sm URL expander
 baidu	Baidu
+barkrowler	Barkrowler
 bdcbot	Big Data Corp
 bingbot	Microsoft Bing
 bingpreview	Microsoft Bing preview
@@ -25,22 +29,31 @@ bitlybot	bit.ly bot
 blekkobot	Blekkobot
 blexbot	BLEXBot (webmeup)
 bot@linkfluence.net	Linkfluence bot
+bubing	BUbiNG
 bufferbot	BufferBot
 buibui-checkbot	buibui
 butterfly	Topsy Labs
+buzzbot	Buzzbot
 buzztalk	buzztalk
 catchbot	CatchBot (catchbot.com)
 check_http	Nagios monitor
+chrome-lighthouse	Chrome-Lighthouse
+cipacrawler	CipaCrawler
 cliqzbot	Cliqzbot
+cloudflare	CloudFlare-AlwaysOnline
 cmradar/0.1	CMRadar/0.1
 coldfusion	ColdFusion http library
 commoncrawl	CCBot
+comodo ssl checker	COMODO SSL Checker
 comodo-webinspector-crawler	Comodo
+copypants	BotPants
 crowsnest	Crowsnest
 curabot	cura.yt
 curl	curl unix CLI http client
 dap/nethttp	DAP/NetHTTP
+datafeedwatch	DataFeedWatch
 datagnionbot	datagnion.com/bot.html
+datanyze	Datanyze
 daumoa	Korean portal and search engine indexing bot
 developers.google.com/+/web/snippet/	Google Plus
 diffbot	Diffbot
@@ -49,15 +62,15 @@ domain re-animator bot	Domain Re-Animator Bot
 domainsbot	DomainsBot
 domaintunocrawler	DomainTuno
 dotbot	Dot Bot
-duckduck	Duck Duck Go
+duckduckbot	Duck Duck Go
 elb-healthchecker	AWS ELB HealthChecker
 embedly	Embedly
 eoaagent	EOAAgent
-eventmachine httpclient	Ruby http library
 everyonesocialbot	EveryoneSocial
 evrinid	Evri bot
 exabot	Exalead's bot
 exaleadcloudview	ExaleadCloudView
+ez publish	eZ Publish Link Validator
 facebookexternalhit	Facebook Bot
 facebot	Facebook Bot
 feedburner	RSS bot
@@ -65,39 +78,45 @@ feedfetcher-google	Google Feedfetcher
 findxbot	Findxbot
 flipboardproxy	FlipboardProxy
 friendfeedbot	FriendFeed
+fyrebot	Fyrebot
+garlik	GarlikCrawler
 genieo	Genieo Web filter bot
+germcrawler	GermCrawler
 getprismatic.com	getprismatic.com
 gigabot	Gigabot spider
 gimme60bot	Gimme60 (gimme60.com)
 gimmeusabot	Gimme60 (gimme60.com)
 go http package	Go http library
+go-http-client	Go http client
 google page speed insights	Google Page Speed Insights
-google Web Preview	Google Instant Previews crawler
-google-structured-data-testing-tool	Google-StructuredDataTestingTool
-google-structureddatatestingtool	Google-StructuredDataTestingTool
+google web preview	Google Instant Previews crawler
+google-site-verification	Google Site Verification
+google-structured-data-testing-tool	Google Structured Data Testing Tool
+google-structureddatatestingtool	Google Structured Data Testing Tool
+google-xrawler	Google Shopping
 googlebot	Google Bot
-googlestackdrivermonitoring-uptimechecks	GoogleStackdriverMonitoring-UptimeChecks
+googleimageproxy	Google Image Proxy
+googlestackdrivermonitoring-uptimechecks	Google Stackdriver Monitoring - Uptime Checks
 grapeshotcrawler	GrapeshotCrawler
 gravitybot	Gravity Bot
 hatena::bookmark	Hatena::Bookmark
 heritrix	heritrix
-htmlparser	HTMLParser
-http_request2	HTTP_Request2
-httpclient	HTTPClient
 https://developers.google.com/+/web/snippet	Google+ Snippet Fetcher
+httrack	HTTrack
 hubspot	HubSpot
 ia_archiver	Internet Archive (WayBackMachine)
 icoreservice	iCoreService
 idmarch	idmarch.org/bot.html
+implisensebot	ImplisenseBot
 inagist	URL resolver
 insieve	Insieve Bot
 insitesbot	Insitesbot
 instapaper	Instapaper
 istellabot	IstellaBot
-jack	jack
-jakarta commons	Jakarta Commons HttpClient
-java	Generic Java http library
+jaunt	Jaunt - Java Web Scraping & JSON Querying
 jetslide	Jetslide
+jobseeker	jobseeker.com.au/bot.html
+jooble	Jooble
 js-kit	URL resolver
 kemvibot	Kemvi
 kimengi	Kimengi Bot
@@ -106,7 +125,6 @@ kojitsubot	Kojitsubot
 komodiabot	KomodiaBot
 kraken	kraken
 laconica	Laconica
-libwww-perl	Perl client-server library
 lijit crawler	Lijit
 linkdexbot	Linkdex Bot
 linkedinbot	LinkedIn
@@ -118,9 +136,11 @@ loadtimebot	Load Time Bot
 longurl	URL expander service
 ltx71	ltx71.com
 lumibot	Lumibot
-lwp-trivial	Another Perl library
 magpie-crawler	magpie-crawler
 mail.ru_bot	Mail.ru Bot
+mappydata	Mappy
+mastodon	Mastodon URL expander
+mauibot	MauiBot
 meanpathbot	meanpath
 mediapartners-google	Google Adsense bot
 megaindex.ru	MegaIndex
@@ -130,7 +150,6 @@ mfe_expand	Mcafee spider
 mir web crawler	MIR web crawler
 mj12bot	Majestic-12 spider
 mojeekbot	Mojeek UK search crawler
-mrchrome	MrChrome
 ms search 6.0 robot	MS Search 6.0 Robot
 msnbot-media	Microsoft media bot
 msnbot	Microsoft bot
@@ -147,6 +166,7 @@ ning	NING - Yet Another Twitter Swarmer
 nutch	Apache search spider
 openhosebot	OpenHoseBot
 orangebot	OrangeBot
+paessler	paessler.com - PRTG Network Monitor
 pagesinventory	pagesinventory.com
 panopta	Monitoring service
 paperlibot	PaperLi
@@ -157,15 +177,18 @@ phantomjs	PhantomJS
 pingdom	Pingdom monitoring
 pinterest	Pinterest
 plukkie	botje.com/plukkie.htm
+pr-cy.ru	PR-CY.RU
 privacyawarebot	PrivacyAwareBot
 proximic	Proximic Spider
 psbot-page	Picsearch
+pu_in	Pu_iN Crawler
 publiclibraryarchive.org	publiclibraryarchive.org
 pycurl	Python http library
 python-httplib2	Python-httplib2
 python-requests	Python http library
 python-urllib	Python http library
 queryseeker	QuerySeekerSpider
+quick-crawler	Quick-Crawler
 quicklook	QuickLook
 re-animator	Domain Re-Animator Bot
 readability	Readability
@@ -175,11 +198,15 @@ relateiq	RelateIQ
 riddler	Riddler Bot
 rogerbot	SeoMoz spider
 rssmicro	RSS/Atom Feed Robot (rssmicro.com)
-ruby	Ruby
+scouturlmonitor	ScoutURLMonitor
 scrapy	Scrapy
 screaming frog seo spider	Screaming Frog SEO Spider
 searchmetricsbot	SearchmetricsBot
+semanticbot	Semanticbot
 semrushbot	SEO analysis bot
+seo-audit	seo-audit-check-bot
+seobilitybot	SeobilityBot
+seodiver	SEOdiver
 seokicks	SEOKicks
 seznambot	SeznamBot
 shopwiki	ShopWiki
@@ -187,24 +214,33 @@ shortlinktranslate	Link shortener
 showyoubot	Showyou iOS app spider
 siege	Joe Dog Siege
 sistrix	SISTRIX
+sitecheck	SiteCheck sitecrawl
 siteuptime	Site monitoring services
-slack	Slackbot-LinkExpanding
-slackbot	Slack Bot
+skypeuripreview	SkypeUriPreview
+slack-imgproxy	Slack Image Proxy
+slack-linkexpanding	Slack Link Expanding
+slack	Slack Link Expanding
+slackbot	Slackbot
 slurp	Yahoo spider
 smtbot	SimilarTech
+snapchat	Snapchat
 socialrank	SocialRankIOBot
 sogou	Chinese search engine
 spbot	OpenLinkProfiler
-spider	generic web spider
 spinn3r	Spinn3r aggregator
 sputnikbot	SputnikBot
 squider	Squider
 statuscake	StatusCake
 stripe	Stripe
+swiftbot	Swiftype Bot
+tangibleebot	TangibleeBot
+teeraid	TeeRaidBot
 test certificate info	C http library?
+the knowledge ai	Knowledge AI Bot
 tineye	TinEye Bot
 traackr	Traackr Bot
 trendictionbot	Trendiction Search
+trendsmap	Trendsmap Resolver
 turnitinbot	TurnitinBot
 tweetedtimes	The Tweeted Times
 tweetmemebot	TweetMeMe Crawler
@@ -216,6 +252,7 @@ twurly	Twurly
 typhoeus	Typhoeus
 umbot	uberMetrics
 unwindfetch	Gnip
+updown	Updown.io monitor
 uptimerobot	Uptime Robot
 vagabondo	Vagabondo
 vb project	Visual Basic
@@ -226,10 +263,15 @@ vrcrawler	Venture Radar
 wasalive-bot	Wasalive Bots
 watchsumo	WatchSumo
 wbsearchbot	Ware Bay Best Buys
+webceo	online-webceo-bot
 webscout	Webscout
 wesee	WeSEE
 wget	wget unix CLI http client
+whatsapp	WhatsApp
+wikido	WikiDo
+woorank	WooRank
 wordpress	WordPress spider
+woriobot	woriobot
 wormly	WormlyBot
 wotbox	Wotbox
 xenu link sleuth	Xenu Link Sleuth
@@ -238,9 +280,23 @@ xovibot	XoviBot
 yacybot	YaCy
 yahoo-ad-monitoring	Yahoo Ad monitoring
 yandex	Yandex
+yanga	Yanga WorldSearch Bot
 yeti	Naver Corp
 yourls	YOURLS
+zabbix	Zabbix
 zelist.ro	feed parser
 zibb	ZIBB spider
 zitebot	Zite
+zoombot	ZoomBot
+zoominfobot	ZoominfoBot
 zyborg	Zyborg
+eventmachine httpclient	Ruby http library
+go 1.1 package http	Go 1.1 package http
+htmlparser	HTMLParser
+http_request2	HTTP_Request2
+httpclient	HTTPClient
+jakarta commons	Jakarta Commons HttpClient
+java	Generic Java http library
+libwww-perl	Perl client-server library
+lwp-trivial	Another Perl library
+ruby	Ruby
