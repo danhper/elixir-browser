@@ -473,28 +473,13 @@ defmodule BrowserTest do
     refute Browser.bot?("")
     refute Browser.bot?(%Plug.Conn{})
 
-    Enum.each ~w[
-      APPLE_BOT
-      DOT_BOT
-      FACEBOOK_BOT
-      GOOGLE_BOT
-      LINKDEXBOT
-      LOAD_TIME_BOT
-      MAIL_RU
-      MEGAINDEX_RU
-      MSN_BOT
-      QUERYSEEKER
-      SCRAPY
-      YANDEX_DIRECT
-      YANDEX_METRIKA
-    ], fn key ->
-      ua = Fixtures.ua[key]
-      assert Browser.bot?(ua), "#{Fixtures.ua[key]} should be a bot"
+    for {_key, ua} <- Fixtures.bot_ua do
+      assert Browser.bot?(ua), "#{ua} should be a bot"
 
       conn =
         %Plug.Conn{}
         |> Plug.Conn.put_req_header("user-agent", ua)
-      assert Browser.bot?(conn), "#{Fixtures.ua[key]} should be a bot"
+      assert Browser.bot?(conn), "#{ua} should be a bot"
     end
 
     ua = Fixtures.ua["CHROME"]
