@@ -49,7 +49,7 @@ defmodule Browser do
   ]
 
   @versions %{
-    edge: ~r{Edge/([\d.]+)},
+    edge: ~r{(?:Edge|Edg)/([\d.]+)},
     chrome: ~r{(?:Chrome|CriOS)/([\d.]+)},
     default: ~r{(?:Version|MSIE|Firefox|QuickTime|BlackBerry[^/]+|CoreMedia v|PhantomJS|AdobeAIR|GSA|UCBrowser)[/ ]?([a-z0-9.]+)}i,
     opera: ~r{(?:Opera/.*? Version/([\d.]+)|Chrome/.*?OPR/([\d.]+))},
@@ -363,7 +363,7 @@ defmodule Browser do
   @trident_version_regex ~r{Trident/([0-9.]+)}
   @modern_ie ~r{Trident/.*?; rv:(.*?)}
   @msie ~r{MSIE ([\d.]+)|Trident/.*?; rv:([\d.]+)}
-  @edge ~r{(Edge/[\d.]+|Trident/8)}
+  @edge ~r{((Edge|Edg)/[\d.]+|Trident/8)}
   @trident_mapping %{
     "4.0" => "8",
     "5.0" => "9",
