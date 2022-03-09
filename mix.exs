@@ -33,13 +33,13 @@ defmodule Browser.Mixfile do
   end
 
   def application do
-    [applications: [:logger]]
+    [extra_applications: [:logger]]
   end
 
   defp deps() do
     [{:plug, "~> 1.2", optional: true},
      {:earmark, "~> 1.0", only: :dev},
      {:ex_doc, "~> 0.19", only: :dev},
-     {:mix_test_watch, "~> 0.2", only: :dev}]
+     {:mix_test_watch, "~> 1.1", only: :dev}]
   end
 end
