@@ -5,7 +5,10 @@ defmodule Browser.Helpers do
       |> String.trim()
       |> String.split("\n")
       |> Enum.map(&String.split(&1, "\t"))
-      |> Enum.map(fn [a,b] -> {a, b} end)
+      |> Enum.map(fn
+        [b] -> {b, b}
+        [a, b] -> {a, b}
+      end)
   end
 
   def to_int(str) do

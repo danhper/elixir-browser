@@ -252,12 +252,20 @@ defmodule Browser do
   # Bot
   @bots_file Application.get_env(:browser, :bots_file, "bots.txt")
   @bots Browser.Helpers.read_file(@bots_file)
+  @bot_exceptions_file Application.get_env(:browser, :bot_exceptions_file, "bot_exceptions.txt")
+  @bot_exceptions Browser.Helpers.read_file(@bot_exceptions_file)
   @search_engines Browser.Helpers.read_file("search_engines.txt")
 
   def bot?(input, options \\ []) do
     ua = Ua.to_ua(input) |> String.downcase
     bot_with_empty_ua?(ua, options) ||
-      Enum.any? @bots, fn {name, _} -> String.contains?(ua, name) end
+      (not Enum.any?(@bot_exceptions, fn {name, _} ->
+        String.contains?(ua, name)
+      end) and
+      Enum.any?(@bots, fn {name, _} ->
+        Regex.match?(~r/crawl|fetch|search|monitoring|spider|bot/, ua) or
+          String.contains?(ua, name)
+      end))
   end
 
   def bot_name(input, options \\ []) do
