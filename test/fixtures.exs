@@ -57,7 +57,7 @@ defmodule Fixtures do
       "IE8_WITHOUT_TRIDENT" => "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.0) .NET CLR 2.0.50727",
       "IE9_WITHOUT_TRIDENT" => "Mozilla/4.0 (compatible; MSIE 9.0; Windows NT 6.1)",
       "IOS4" => "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_0 like Mac OS X; en-us) AppleWebKit/532.9 (KHTML, like Gecko) Version/4.0.5 Mobile/8A293 Safari/6531.22.7",
-      "IOS5" => "Mozilla/5.0 (iPhone; CPU iPhone OS 5_0 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9A334 Safari/7534.48.3",
+      "IOS5" => "Mozilla/5.0 (iPhone; CPU iPhone OS 5.1.2 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9A334 Safari/7534.48.3",
       "IOS6" => "Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5376e Safari/8536.25",
       "IOS7" => "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53",
       "IOS8" => "Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12A365 Safari/600.1.4",
