@@ -9,7 +9,7 @@ defmodule Browser.Mixfile do
      homepage_url: "https://github.com/danhper/elixir-browser",
      package: package(),
      description: description(),
-     elixir: "~> 1.3",
+     elixir: "~> 1.10",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      deps: deps(),
