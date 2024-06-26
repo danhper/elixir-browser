@@ -195,36 +195,36 @@ defmodule Browser do
 
   def safari?(input) do
     ua = Ua.to_ua(input)
-    other_match = ~r/Android|Chrome|CriOS|PhantomJS/
-    (String.match?(ua, ~r/Safari/) or safari_webapp_mode?(ua)) and not String.match?(ua, other_match)
+    other_match = ~w[Android Chrome CriOS PhantomJS]
+    (String.contains?(ua, "Safari") or safari_webapp_mode?(ua)) and not String.contains?(ua, other_match)
   end
 
   def safari_webapp_mode?(input) do
-    (ipad?(input) or iphone?(input)) and (input |> Ua.to_ua |> String.match?(~r/AppleWebKit/))
+    (ipad?(input) or iphone?(input)) and (input |> Ua.to_ua |> String.contains?("AppleWebKit"))
   end
 
   def firefox?(input) do
-    input |> Ua.to_ua |> String.match?(~r/Firefox/)
+    input |> Ua.to_ua |> String.contains?("Firefox")
   end
 
   def chrome?(input) do
-    (input |> Ua.to_ua |> String.match?(~r/(Chrome|CriOS)/)) and !opera?(input) and !edge?(input)
+    (input |> Ua.to_ua |> String.contains?(["Chrome", "CriOS"])) and !opera?(input) and !edge?(input)
   end
 
   def opera?(input) do
-    input |> Ua.to_ua |> String.match?(~r/(Opera|OPR)/)
+    input |> Ua.to_ua |> String.contains?(["Opera", "OPR"])
   end
 
   def uc_browser?(input) do
-    input |> Ua.to_ua |> String.match?(~r/(UCBrowser)/)
+    input |> Ua.to_ua |> String.contains?("UCBrowser")
   end
 
   def silk?(input) do
-    input |> Ua.to_ua |> String.match?(~r/Silk/)
+    input |> Ua.to_ua |> String.contains?("Silk")
   end
 
   def yandex?(input) do
-    input |> Ua.to_ua |> String.match?(~r/YaBrowser/)
+    input |> Ua.to_ua |> String.contains?("YaBrowser")
   end
 
   def known?(input) do
@@ -241,7 +241,7 @@ defmodule Browser do
   end
 
   def blackberry?(input, version \\ nil) do
-    (input |> Ua.to_ua |> String.match?(~r/(BlackBerry|BB10)/)) and
+    (input |> Ua.to_ua |> String.contains?(["BlackBerry", "BB10"])) and
       detect_version?(blackberry_version(input), version)
   end
 
@@ -263,8 +263,7 @@ defmodule Browser do
         String.contains?(ua, name)
       end) and
       Enum.any?(@bots, fn {name, _} ->
-        Regex.match?(~r/crawl|fetch|search|monitoring|spider|bot/, ua) or
-          String.contains?(ua, name)
+        String.contains?(ua, [name | ~w[crawl fetch search monitoring spider bot]])
       end))
   end
 
@@ -315,29 +314,29 @@ defmodule Browser do
   end
 
   def psp?(input) do
-    (input |> Ua.to_ua |> String.match?(~r/PSP/)) or psp_vita?(input)
+    (input |> Ua.to_ua |> String.contains?("PSP")) or psp_vita?(input)
   end
 
   def psp_vita?(input) do
-    input |> Ua.to_ua |> String.match?(~r/Playstation Vita/)
+    input |> Ua.to_ua |> String.contains?("Playstation Vita")
   end
 
   # Devices
 
   def iphone?(input) do
-    input |> Ua.to_ua |> String.match?(~r/iPhone/)
+    input |> Ua.to_ua |> String.contains?("iPhone")
   end
 
   def ipad?(input) do
-    input |> Ua.to_ua |> String.match?(~r/iPad/)
+    input |> Ua.to_ua |> String.contains?("iPad")
   end
 
   def ipod?(input) do
-    input |> Ua.to_ua |> String.match?(~r/iPod/)
+    input |> Ua.to_ua |> String.contains?("iPod")
   end
 
   def surface?(input) do
-    windows_rt?(input) and (input |> Ua.to_ua |> String.match?(~r/Touch/))
+    windows_rt?(input) and (input |> Ua.to_ua |> String.contains?("Touch"))
   end
 
   def tablet?(input) do
@@ -345,16 +344,16 @@ defmodule Browser do
   end
 
   def kindle?(input) do
-    (input |> Ua.to_ua |> String.match?(~r/(Kindle)/)) or silk?(input)
+    (input |> Ua.to_ua |> String.contains?("Kindle")) or silk?(input)
   end
 
   def playbook?(input) do
     ua = Ua.to_ua(input)
-    String.match?(ua, ~r/PlayBook/) and String.match?(ua, ~r/RIM Tablet/)
+    String.contains?(ua, "PlayBook") and String.contains?(ua, "RIM Tablet")
   end
 
   def windows_touchscreen_desktop?(input) do
-    windows?(input) and (input |> Ua.to_ua |> String.match?(~r/Touch/))
+    windows?(input) and (input |> Ua.to_ua |> String.contains?("Touch"))
   end
 
   def device_type(input) do
@@ -436,7 +435,7 @@ defmodule Browser do
   end
 
   def opera_mini?(input) do
-    input |> Ua.to_ua |> String.match?(~r/Opera Mini/)
+    input |> Ua.to_ua |> String.contains?("Opera Mini")
   end
 
   def adobe_air?(input) do
@@ -454,7 +453,7 @@ defmodule Browser do
 
   def android?(input, version \\ nil) do
     ua = Ua.to_ua(input)
-    String.match?(ua, ~r/Android/) and detect_version?(android_version(ua), version)
+    String.contains?(ua, "Android") and detect_version?(android_version(ua), version)
   end
 
   def android_version(input) do
@@ -471,7 +470,7 @@ defmodule Browser do
   end
 
   def mac?(input) do
-    (input |> Ua.to_ua |> String.match?(~r/Mac OS X/)) and not ios?(input)
+    (input |> Ua.to_ua |> String.contains?("Mac OS X")) and not ios?(input)
   end
 
   def mac_version(input) do
@@ -503,7 +502,7 @@ defmodule Browser do
   end
 
   def windows?(input) do
-    input |> Ua.to_ua |> String.match?(~r/(Windows)/)
+    input |> Ua.to_ua |> String.contains?("Windows")
   end
 
   def windows_version_name(input) do
@@ -522,43 +521,43 @@ defmodule Browser do
   end
 
   def windows_xp?(input) do
-    windows?(input) and (input |> Ua.to_ua |> String.match?(~r/(Windows NT 5\.1)/))
+    windows?(input) and (input |> Ua.to_ua |> String.contains?("Windows NT 5.1"))
   end
 
   def windows_vista?(input) do
-    windows?(input) and (input |> Ua.to_ua |> String.match?(~r/(Windows NT 6\.0)/))
+    windows?(input) and (input |> Ua.to_ua |> String.contains?("Windows NT 6.0"))
   end
 
   def windows7?(input) do
-    windows?(input) and (input |> Ua.to_ua |> String.match?(~r/(Windows NT 6\.1)/))
+    windows?(input) and (input |> Ua.to_ua |> String.contains?("Windows NT 6.1"))
   end
 
   def windows8?(input) do
-    windows?(input) and (input |> Ua.to_ua |> String.match?(~r/(Windows NT 6\.[2-3])/))
+    windows?(input) and (input |> Ua.to_ua |> String.contains?(["Windows NT 6.2", "Windows NT 6.3"]))
   end
 
   def windows8_1?(input) do
-    windows?(input) and (input |> Ua.to_ua |> String.match?(~r/(Windows NT 6\.3)/))
+    windows?(input) and (input |> Ua.to_ua |> String.contains?("Windows NT 6.3"))
   end
 
   def windows10?(input) do
-    windows?(input) and (input |> Ua.to_ua |> String.match?(~r/(Windows NT 10)/))
+    windows?(input) and (input |> Ua.to_ua |> String.contains?("Windows NT 10"))
   end
 
   def windows_rt?(input) do
-    windows8?(input) and (input |> Ua.to_ua |> String.match?(~r/(ARM)/))
+    windows8?(input) and (input |> Ua.to_ua |> String.contains?("ARM"))
   end
 
   def windows_mobile?(input) do
-    input |> Ua.to_ua |> String.match?(~r/Windows CE/)
+    input |> Ua.to_ua |> String.contains?("Windows CE")
   end
 
   def windows_phone?(input) do
-    input |> Ua.to_ua |> String.match?(~r/Windows Phone/)
+    input |> Ua.to_ua |> String.contains?("Windows Phone")
   end
 
   def windows_x64?(input) do
-    windows?(input) and (input |> Ua.to_ua |> String.match?(~r/x64/))
+    windows?(input) and (input |> Ua.to_ua |> String.contains?("x64"))
   end
 
   def windows_wow64?(input) do
@@ -570,11 +569,11 @@ defmodule Browser do
   end
 
   def linux?(input) do
-    input |> Ua.to_ua |> String.match?(~r/Linux/)
+    input |> Ua.to_ua |> String.contains?("Linux")
   end
 
   def chrome_os?(input) do
-    input |> Ua.to_ua |> String.match?(~r/CrOS/)
+    input |> Ua.to_ua |> String.contains?("CrOS")
   end
 
   def platform(input) do
