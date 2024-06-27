@@ -1294,10 +1294,11 @@ defmodule BrowserTest do
   end
 
 
-  test "detects ios5" do
+  test "detects ios5 and returns minor and patch versions" do
     ua = Fixtures.ua["IOS5"]
     assert Browser.ios?(ua)
     assert Browser.ios?(ua, 5)
+    assert Browser.full_display(ua) == "iPhone 5.1 on iOS 5.1.2"
     refute Browser.mac?(ua)
   end
 
