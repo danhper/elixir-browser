@@ -250,9 +250,9 @@ defmodule Browser do
   end
 
   # Bot
-  @bots_file Application.get_env(:browser, :bots_file, "bots.txt")
+  @bots_file Application.compile_env(:browser, :bots_file, "bots.txt")
   @bots Browser.Helpers.read_file(@bots_file)
-  @bot_exceptions_file Application.get_env(:browser, :bot_exceptions_file, "bot_exceptions.txt")
+  @bot_exceptions_file Application.compile_env(:browser, :bot_exceptions_file, "bot_exceptions.txt")
   @bot_exceptions Browser.Helpers.read_file(@bot_exceptions_file)
   @search_engines Browser.Helpers.read_file("search_engines.txt")
 
