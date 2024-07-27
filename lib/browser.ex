@@ -466,7 +466,7 @@ defmodule Browser do
   end
 
   def ios_version(input) do
-    Enum.at(Regex.run(~r/OS ([\d.]+)/, Ua.to_ua(input)) || [], 1)
+    Enum.at(Regex.run(~r/OS ([\d\.]+)/, Ua.to_ua(input)) || [], 1)
   end
 
   def mac?(input) do
