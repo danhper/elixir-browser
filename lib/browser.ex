@@ -48,13 +48,15 @@ defmodule Browser do
     other: "Other",
   ]
 
-  @versions %{
-    edge: ~r{(?:Edge|Edg)/([\d.]+)},
-    chrome: ~r{(?:Chrome|CriOS)/([\d.]+)},
-    default: ~r{(?:Version|MSIE|Firefox|QuickTime|BlackBerry[^/]+|CoreMedia v|PhantomJS|AdobeAIR|GSA|UCBrowser)[/ ]?([a-z0-9.]+)}i,
-    opera: ~r{(?:Opera/.*? Version/([\d.]+)|Chrome/.*?OPR/([\d.]+))},
-    ie: ~r{(?:MSIE |Trident/.*?; rv:)([\d.]+)}
-  }
+  defp versions do
+    %{
+      edge: ~r{(?:Edge|Edg)/([\d.]+)},
+      chrome: ~r{(?:Chrome|CriOS)/([\d.]+)},
+      opera: ~r{(?:Opera/.*? Version/([\d.]+)|Chrome/.*?OPR/([\d.]+))},
+      ie: ~r{(?:MSIE |Trident/.*?; rv:)([\d.]+)},
+      default: ~r{(?:Version|MSIE|Firefox|QuickTime|BlackBerry[^/]+|CoreMedia v|PhantomJS|AdobeAIR|GSA|UCBrowser)[/ ]?([a-z0-9.]+)}i
+    }
+  end
 
   @modern_rules [
     &Browser.webkit?/1,
@@ -142,7 +144,10 @@ defmodule Browser do
     if ie?(ua) do
       ie_full_version(ua)
     else
-      Map.get(@versions, id(ua), @versions[:default])
+      versions_patterns = versions()
+
+      versions_patterns
+        |> Map.get(id(ua), versions_patterns[:default])
         |> Regex.run(ua)
         |> Kernel.||([])
         |> Enum.drop(1)
@@ -367,10 +372,6 @@ defmodule Browser do
   end
 
   # IE
-  @trident_version_regex ~r{Trident/([0-9.]+)}
-  @modern_ie ~r{Trident/.*?; rv:(.*?)}
-  @msie ~r{MSIE ([\d.]+)|Trident/.*?; rv:([\d.]+)}
-  @edge ~r{((Edge|Edg)/[\d.]+|Trident/8)}
   @trident_mapping %{
     "4.0" => "8",
     "5.0" => "9",
@@ -385,7 +386,9 @@ defmodule Browser do
   end
 
   def edge?(input) do
-    input |> Ua.to_ua |> String.match?(@edge)
+    edge_regex = ~r{((Edge|Edg)/[\d.]+|Trident/8)}
+
+    input |> Ua.to_ua |> String.match?(edge_regex)
   end
 
   defp ie_version(ua) do
@@ -393,7 +396,9 @@ defmodule Browser do
   end
 
   defp trident_version(ua) do
-    (Regex.run(@trident_version_regex, ua) || []) |> Enum.at(1)
+    trident_version_regex =  ~r{Trident/([0-9.]+)}
+
+    (Regex.run(trident_version_regex, ua) || []) |> Enum.at(1)
   end
 
   defp ie_full_version(ua) do
@@ -407,7 +412,9 @@ defmodule Browser do
 
   def msie_full_version(input) do
     ua = Ua.to_ua(input)
-    if res = Regex.run(@msie, ua) do
+    msie_regex = ~r{MSIE ([\d.]+)|Trident/.*?; rv:([\d.]+)}
+
+    if res = Regex.run(msie_regex, ua) do
       first_match = Enum.at(res, 1)
       if first_match && String.length(first_match) > 0, do: first_match, else: Enum.at(res, 2) || "0.0"
     else
@@ -421,7 +428,9 @@ defmodule Browser do
   end
 
   defp modern_ie?(ua) do
-    Regex.match?(@modern_ie, ua)
+    modern_ie_regex = ~r{Trident/.*?; rv:(.*?)}
+
+    Regex.match?(modern_ie_regex, ua)
   end
 
   defp msie?(ua) do
